@@ -121,6 +121,11 @@
   padding-top: 26px;
 }
 
+.contain5 {
+  padding-left: 184px;
+  padding-top: 26px;
+}
+
 .topPicks {
   color: #ffffff;
   font-family: "Urbanist", sans-serif;
@@ -226,4 +231,131 @@
 .containText {
   display: flex;
   flex-direction: row;
+}
+
+.individualHero {
+  height: 978px;
+  background-color: #b13bff;
+}
+
+.individualBack {
+  height: 1395px;
+  background-color: #471396;
+}
+
+.moreLikeThis {
+  color: #ffffff;
+  font-family: "Urbanist", sans-serif;
+  font-size: 40px;
+  padding-top: 132px;
+  padding-left: 184px;
+}
+
+.moreMovies {
+  width: 297px;
+  height: 193px;
+  background-color: #ffffff;
+  padding-left: 184px;
+}
+
+.continueWatching2 {
+  color: #ffffff;
+  font-family: "Urbanist", sans-serif;
+  font-size: 40px;
+  padding-top: 29px;
+  padding-left: 184px;
+}
+
+.movieTitle {
+  color: #ffffff;
+  font-family: "Urbanist", sans-serif;
+  font-size: 52px;
+  padding-top: 135px;
+  padding-left: 178px;
+}
+
+.director {
+  color: #ffffff;
+  font-family: "Urbanist", sans-serif;
+  font-size: 18px;
+  padding-top: px;
+  padding-left: 180px;
+}
+
+.star {
+  height: 30px;
+  padding-top: 4px;
+  padding-left: 179px;
+}
+
+.synopsis {
+  color: #ffffff;
+  font-family: "Urbanist", sans-serif;
+  font-size: 16px;
+  padding-top: 18px;
+  padding-left: 180px;
+  width: 509px;
+}
+
+.synopsisContainer {
+  width: 509px;
+}
+
+.firstButton {
+  padding-left: 165px;
+  padding-top: 29px;
+}
+
+.secondButton {
+  padding-left: 21px;
+  padding-top: 29px;
+}
+
+.thirdButton {
+  padding-left: 21px;
+  padding-top: 29px;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.paragraph {
+  color: #ffffff;
+  font-family: "Urbanist", sans-serif;
+  font-size: 18px;
+  padding-top: 127px;
+  padding-left: 180px;
+}
+
+.paragraphBlock {
+  width: 197px;
+  height: 111px;
+  background-color: #ffffff;
+}
+
+.paragraphContainer {
+  padding-left: 163px;
+  padding-top: 5px;
+}
+
+.actors {
+  color: #ffffff;
+  font-family: "Urbanist", sans-serif;
+  font-size: 18px;
+  padding-top: 15px;
+  padding-left: 180px;
+}
+
+.circle1 {
+  width: 100px;
+  height: 100px;
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+
+.circleContainer {
+  padding-left: 170px;
+  padding-top: 10px;
 }
