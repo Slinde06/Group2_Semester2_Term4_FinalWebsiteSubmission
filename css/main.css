@@ -1,0 +1,229 @@
+.barriecito-regular {
+  font-family: "Barriecito", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.chewy-regular {
+  font-family: "Chewy", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.poller-one-regular {
+  font-family: "Poller One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.boldonse-regular {
+  font-family: "Boldonse", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.cal-sans-regular {
+  font-family: "Cal Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.urbanist-regular {
+  font-family: "Urbanist", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.header {
+  height: 64px;
+  width: auto;
+  background-color: #ffffff;
+}
+.homeHero {
+  height: 978px;
+  width: auto;
+  background-color: #b13bff;
+}
+
+.homeBack {
+  height: 1680px;
+  width: auto;
+  background-color: #471396;
+}
+
+.continueWatching {
+  color: #ffffff;
+  font-family: "Urbanist", sans-serif;
+  font-size: 40px;
+  padding-top: 343px;
+  padding-left: 184px;
+}
+
+.trendingNow {
+  color: #ffffff;
+  font-family: "Urbanist", sans-serif;
+  font-size: 40px;
+  padding-left: 184px;
+  padding-top: 23px;
+}
+
+.genres {
+  color: #ffffff;
+  font-family: "Urbanist", sans-serif;
+  font-size: 40px;
+  padding-left: 184px;
+  padding-top: 23px;
+}
+
+.continueMovies {
+  width: 296px;
+  height: 193px;
+  background-color: #ffffff;
+  padding-left: 184px;
+}
+
+.topMovies {
+  width: 296px;
+  height: 193px;
+  background-color: #ffffff;
+  padding-left: 184px;
+}
+
+.trendingMovies {
+  width: 296px;
+  height: 193px;
+  background-color: #ffffff;
+  padding-left: 184px;
+}
+
+.genres2 {
+  width: 296px;
+  height: 193px;
+  background-color: #ffffff;
+  padding-left: 184px;
+}
+
+.contain1 {
+  padding-left: 184px;
+  padding-top: 26px;
+}
+
+.contain2 {
+  padding-left: 184px;
+  padding-top: 26px;
+}
+
+.contain3 {
+  padding-left: 184px;
+  padding-top: 26px;
+}
+
+.contain4 {
+  padding-left: 184px;
+  padding-top: 26px;
+}
+
+.topPicks {
+  color: #ffffff;
+  font-family: "Urbanist", sans-serif;
+  font-size: 40px;
+  padding-left: 184px;
+  padding-top: 32px;
+}
+
+.footer {
+  height: 64px;
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.footerText {
+  color: #471396;
+  text-align: center;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: row;
+  padding-top: 16;
+  padding-left: 53.3335px;
+  padding-bottom: 26px;
+}
+
+.about {
+  padding-right: 42.67px;
+}
+
+.helpCenter {
+  padding-right: 42.67px;
+}
+
+.terms {
+  padding-right: 42.67px;
+}
+
+.footerMedia {
+  padding-right: 192px;
+  display: flex;
+  flex-direction: row-reverse;
+  padding-top: 17px;
+}
+
+.youtube {
+  height: 33px;
+}
+
+.youtubeContainer {
+  padding-right: 40px;
+}
+
+.twitter {
+  height: 33px;
+}
+
+.twitterContainer {
+  padding-right: 40px;
+}
+
+.instagram {
+  height: 33px;
+}
+
+.logo {
+  height: 80px;
+  padding-left: 53px;
+  padding-top: 18px;
+}
+
+.headerText {
+  color: #471396;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.buttonSignin {
+  height: 40px;
+  text-align: center;
+}
+
+.signIn {
+  padding-left: 121px;
+  padding-top: 12px;
+}
+
+.homeText {
+  padding-right: 43px;
+}
+
+.containText {
+  padding-top: 21px;
+}
+.headerMoviestext {
+  padding-right: 43px;
+}
+
+.seriesText {
+  padding-right: 43px;
+}
+
+.containText {
+  display: flex;
+  flex-direction: row;
+}
