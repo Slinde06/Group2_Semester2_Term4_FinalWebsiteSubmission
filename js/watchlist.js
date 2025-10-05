@@ -45,7 +45,7 @@ class WatchList {
       .catch((err) => console.error(err));
 
     let title = data.results[i].title;
-    let image = data.results[i].poster_path;
+    let image = "https://image.tmdb.org/t/p/w500" + data.results[i].poster_path;
     let year = data.results[i].release_date.slice(0, 4);
     let genres = details.genres;
     let language = data.results[i].original_language;
