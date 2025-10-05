@@ -106,6 +106,39 @@ class Featured {
         DisplayMovies(filteredMovies);
     }
 
+    //filtering for year
+    function FilterYear() {
+        let filterYear = document.getElementById("yearFilter").value;
+        let filteredMovies = libraryMovies.filter(movie => {
+            return movie.year == filterYear;
+        })
+        DisplayMovies(filteredMovies);
+    }
+
+    //filtering for rating
+    function FilterRating() {
+        let filterRating = parseInt(document.getElementById("ratingFilter").value);
+        let filteredMovies = libraryMovies.filter(movie => {
+            return parseInt(movie.rating) <= filterRating;
+        })
+        DisplayMovies(filteredMovies);
+    }
+    
+    //filtering ascending and descending popularity
+    function FilterOrder() {
+        let filterOrder = document.getElementById("ratingFilter").value;
+        if (filterOrder == "Ascending") {
+            libraryMovies.sort((a,b) => a - b);
+            DisplayMovies(libraryMovies);
+        }else{
+            libraryMovies.sort((a,b) => b - a);
+            DisplayMovies(libraryMovies);
+        }
+ 
+        DisplayMovies(filteredMovies);
+    }   
+
+
 })();
 
 
