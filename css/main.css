@@ -1,0 +1,406 @@
+.barriecito-regular {
+  font-family: "Barriecito", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.chewy-regular {
+  font-family: "Chewy", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.poller-one-regular {
+  font-family: "Poller One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.boldonse-regular {
+  font-family: "Boldonse", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.cal-sans-regular {
+  font-family: "Cal Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.urbanist-regular {
+  font-family: "Urbanist", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.header {
+  height: 64px;
+  width: auto;
+  background-color: #ffffff;
+}
+.homeHero {
+  height: 978px;
+  width: auto;
+  background-color: #b13bff;
+}
+
+.homeBack {
+  height: 1680px;
+  width: auto;
+  background-color: #471396;
+}
+
+.continueWatching {
+  color: #ffffff;
+  font-family: "Urbanist", sans-serif;
+  font-size: 40px;
+  padding-top: 343px;
+  padding-left: 184px;
+}
+
+.trendingNow {
+  color: #ffffff;
+  font-family: "Urbanist", sans-serif;
+  font-size: 40px;
+  padding-left: 184px;
+  padding-top: 23px;
+}
+
+.genres {
+  color: #ffffff;
+  font-family: "Urbanist", sans-serif;
+  font-size: 40px;
+  padding-left: 184px;
+  padding-top: 23px;
+}
+
+.continueMovies {
+  width: 296px;
+  height: 193px;
+  background-color: #ffffff;
+  padding-left: 184px;
+}
+
+.topMovies {
+  width: 296px;
+  height: 193px;
+  background-color: #ffffff;
+  padding-left: 184px;
+}
+
+.trendingMovies {
+  width: 296px;
+  height: 193px;
+  background-color: #ffffff;
+  padding-left: 184px;
+}
+
+.genres2 {
+  width: 296px;
+  height: 193px;
+  background-color: #ffffff;
+  padding-left: 184px;
+}
+
+.contain1 {
+  padding-left: 184px;
+  padding-top: 26px;
+}
+
+.contain2 {
+  padding-left: 184px;
+  padding-top: 26px;
+}
+
+.contain3 {
+  padding-left: 184px;
+  padding-top: 26px;
+}
+
+.contain4 {
+  padding-left: 184px;
+  padding-top: 26px;
+}
+
+.contain5 {
+  padding-left: 184px;
+  padding-top: 26px;
+}
+
+.topPicks {
+  color: #ffffff;
+  font-family: "Urbanist", sans-serif;
+  font-size: 40px;
+  padding-left: 184px;
+  padding-top: 32px;
+}
+
+.footer {
+  height: 64px;
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.footerText {
+  color: #471396;
+  text-align: center;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: row;
+  padding-top: 16;
+  padding-left: 53.3335px;
+  padding-bottom: 26px;
+}
+
+.about {
+  padding-right: 42.67px;
+}
+
+.helpCenter {
+  padding-right: 42.67px;
+}
+
+.terms {
+  padding-right: 42.67px;
+}
+
+.footerMedia {
+  padding-right: 192px;
+  display: flex;
+  flex-direction: row-reverse;
+  padding-top: 17px;
+}
+
+.youtube {
+  height: 33px;
+}
+
+.youtubeContainer {
+  padding-right: 40px;
+}
+
+.twitter {
+  height: 33px;
+}
+
+.twitterContainer {
+  padding-right: 40px;
+}
+
+.instagram {
+  height: 33px;
+}
+
+.logo {
+  height: 80px;
+  padding-left: 53px;
+  padding-top: 18px;
+}
+
+.headerText {
+  color: #471396;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.buttonSignin {
+  height: 40px;
+  text-align: center;
+}
+
+.signIn {
+  padding-left: 121px;
+  padding-top: 12px;
+}
+
+.homeText {
+  padding-right: 43px;
+}
+
+.containText {
+  padding-top: 21px;
+}
+.headerMoviestext {
+  padding-right: 43px;
+}
+
+.seriesText {
+  padding-right: 43px;
+}
+
+.containText {
+  display: flex;
+  flex-direction: row;
+}
+
+.individualHero {
+  height: 978px;
+  background-color: #b13bff;
+}
+
+.individualBack {
+  height: 1395px;
+  background-color: #471396;
+}
+
+.moreLikeThis {
+  color: #ffffff;
+  font-family: "Urbanist", sans-serif;
+  font-size: 40px;
+  padding-top: 132px;
+  padding-left: 184px;
+}
+
+.moreMovies {
+  width: 297px;
+  height: 193px;
+  background-color: #ffffff;
+  padding-left: 184px;
+}
+
+.continueWatching2 {
+  color: #ffffff;
+  font-family: "Urbanist", sans-serif;
+  font-size: 40px;
+  padding-top: 29px;
+  padding-left: 184px;
+}
+
+.movieTitle {
+  color: #ffffff;
+  font-family: "Urbanist", sans-serif;
+  font-size: 52px;
+  padding-top: 135px;
+  padding-left: 178px;
+}
+
+.director {
+  color: #ffffff;
+  font-family: "Urbanist", sans-serif;
+  font-size: 18px;
+  padding-top: px;
+  padding-left: 180px;
+}
+
+.star {
+  height: 30px;
+  padding-top: 4px;
+  padding-left: 179px;
+}
+
+.synopsis {
+  color: #ffffff;
+  font-family: "Urbanist", sans-serif;
+  font-size: 16px;
+  padding-top: 18px;
+  padding-left: 180px;
+  width: 509px;
+}
+
+.synopsisContainer {
+  width: 509px;
+}
+
+.firstButton {
+  padding-left: 165px;
+  padding-top: 29px;
+}
+
+.secondButton {
+  padding-left: 21px;
+  padding-top: 29px;
+}
+
+.thirdButton {
+  padding-left: 21px;
+  padding-top: 29px;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.paragraph {
+  color: #ffffff;
+  font-family: "Urbanist", sans-serif;
+  font-size: 18px;
+  padding-top: 127px;
+  padding-left: 180px;
+}
+
+.paragraphBlock {
+  width: 197px;
+  height: 111px;
+  background-color: #ffffff;
+}
+
+.paragraphContainer {
+  padding-left: 163px;
+  padding-top: 5px;
+}
+
+.actors {
+  color: #ffffff;
+  font-family: "Urbanist", sans-serif;
+  font-size: 18px;
+  padding-top: 15px;
+  padding-left: 180px;
+}
+
+.circle1 {
+  width: 100px;
+  height: 100px;
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+
+.circleContainer {
+  padding-left: 170px;
+  padding-top: 10px;
+}
+
+.toptextLibraryone{
+  font-size:2rem; 
+  font-weight:500;
+  color:#000000;
+}
+
+.toptextLibrarytwo{
+  font-size:1rem; 
+  color:#000000; 
+  margin-top:8px;
+}
+
+.buttononlibrary{
+  position:absolute;
+    right:7%;
+    bottom:12%;
+    background:#221f1f;
+    color:#fff;
+    border:none;
+    padding:8px 24px;
+    font-size:1rem;
+    border-radius:2px;
+    cursor:pointer;
+}
+
+.homebottom{
+  height: 978px;
+  width: auto;
+  background-color: #471396;
+}
+
+.buttonbottomofwatch{
+  background:#221f1f; 
+  color:#fff; 
+  border:none; 
+  padding:14px 64px; 
+  font-size:1rem;
+}
+
+.buttondiv{
+  display:flex; 
+  justify-content:center; 
+  margin-top:32px;
+}
