@@ -359,3 +359,48 @@
   padding-left: 170px;
   padding-top: 10px;
 }
+
+.toptextLibraryone{
+  font-size:2rem; 
+  font-weight:500;
+  color:#000000;
+}
+
+.toptextLibrarytwo{
+  font-size:1rem; 
+  color:#000000; 
+  margin-top:8px;
+}
+
+.buttononlibrary{
+  position:absolute;
+    right:7%;
+    bottom:12%;
+    background:#221f1f;
+    color:#fff;
+    border:none;
+    padding:8px 24px;
+    font-size:1rem;
+    border-radius:2px;
+    cursor:pointer;
+}
+
+.homebottom{
+  height: 978px;
+  width: auto;
+  background-color: #471396;
+}
+
+.buttonbottomofwatch{
+  background:#221f1f; 
+  color:#fff; 
+  border:none; 
+  padding:14px 64px; 
+  font-size:1rem;
+}
+
+.buttondiv{
+  display:flex; 
+  justify-content:center; 
+  margin-top:32px;
+}
