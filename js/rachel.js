@@ -12,6 +12,16 @@ class HomepageMovies {
         this.poster=poster;
   }
 }
+
+class actor {
+    constructor(image,name) {
+        this.image=image;
+        this.name=name;
+    }
+}
+
+
+//API functions
 !async function(){
 const options = {
   method: 'GET',
@@ -21,38 +31,45 @@ const options = {
   }
 };
 
-let data = await fetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1', options)
+//featured movies API call
+let feature = await fetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1', options)
   .then(res => res.json())
   .then((result) => {return result})
   .catch(err => console.error(err));
+  
+  
   let featured = [];
+
   for (let i = 0; i < 3; i++) {
-    let title= data.results[i].title;
-    let ID= data.results[i].id;
-    let backdrop= data.results[i].backdrop;
+    let title= feature.results[i].title;
+    let ID= feature.results[i].id;
+    let backdrop= feature.results[i].backdrop;
     
         let movieDetails = await fetch(
             'https://api.themoviedb.org/3/movie/'+ ID +'?language=en-US', options
         )
-        .then((response) => response.json())
-        .then((result) => {return result;})
-        .catch((err) => console.error(err));
+          .then((response) => response.json())
+          .then((result) => {return result;})
+          .catch((err) => console.error(err));
 
-        let tagline = movieDetails.tagline;
-        featured.push(new Featured(title,tagline,ID,backdrop));
+    let tagline = movieDetails.tagline;
+    featured.push(new Featured(title,tagline,ID,backdrop));
   }
 
 //recommendations
 
-         let recommendations = await fetch('https://api.themoviedb.org/3/movie/'+featured[1].id+'/recommendations?language=en-US&page=1', options)
+  let recommendations = await fetch('https://api.themoviedb.org/3/movie/'+featured[1].id+'/recommendations?language=en-US&page=1', options)
          .then(res => res.json())
          .then((result) => {return result})
         .catch(err => console.error(err));
-    let recommended = [];
+  
+  
+  let recommended = [];
+  
   for (let i = 0; i < recommendations.results.length; i++) {
     let ID= recommendations.results[i].id;
     let poster= "https://image.tmdb.org/t/p/original" +recommendations.results[i].poster_path;
-    recommended.push(new Featured(title,tagline,ID,backdrop));
+    recommended.push(new HomepageMovies(ID,poster));
   }
 
 //toppicks
@@ -65,12 +82,12 @@ let data = await fetch('https://api.themoviedb.org/3/movie/now_playing?language=
   for (let i = 0; i < toppicks.results.length; i++) {
     let ID= toppicks.results[i].id;
     let poster= "https://image.tmdb.org/t/p/original" +toppicks.results[i].poster_path;
-    top.push(new Featured(title,tagline,ID,backdrop));
+    top.push(new HomepageMovies(ID,poster));
   }
 
 //trending
 
-    let trending = await fetch('https://api.themoviedb.org/3/movie/'+featured[1].id+'/recommendations?language=en-US&page=1', options)
+    let trending = await fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', options)
   .then(res => res.json())
   .then((result) => {return result})
   .catch(err => console.error(err));
@@ -78,24 +95,67 @@ let data = await fetch('https://api.themoviedb.org/3/movie/now_playing?language=
   for (let i = 0; i < trending.results.length; i++) {
     let ID= trending.results[i].id;
     let poster= "https://image.tmdb.org/t/p/original" +trending.results[i].poster_path;
-    trend.push(new Featured(title,tagline,ID,backdrop));
+    trend.push(new HomepageMovies(ID,poster));
   }
 
 //comedy
 
-    let comedy = await fetch('https://api.themoviedb.org/3/movie/'+featured[1].id+'/recommendations?language=en-US&page=1', options)
-  .then(res => res.json())
-  .then((result) => {return result})
-  .catch(err => console.error(err));
-    let genre = [];
+  let comedy = await fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', options)
+    .then(res => res.json())
+    .then((result) => {return result})
+    .catch(err => console.error(err));
+    
+  let genre = [];
+  
   for (let i = 0; i < comedy.results.length; i++) {
     let ID= comedy.results[i].id;
     if (comedy.results.genre_ids.contains(35)) {
-          let poster= "https://image.tmdb.org/t/p/original" +comedy.results[i].poster_path;
-    genre.push(new Featured(title,tagline,ID,backdrop));
+      let poster= "https://image.tmdb.org/t/p/original" +comedy.results[i].poster_path;
+      genre.push(new HomepageMovies(ID,poster));
     }
 
   }
 
+
+
+  //Individual movie pages
+
+  let data = await fetch(
+            'https://api.themoviedb.org/3/movie/'+ 12 +'?language=en-US', options
+        )
+        .then((response) => response.json())
+        .then((result) => {return result;})
+        .catch((err) => console.error(err));
+
+    let title= data.results[i].title;
+    let ID= data.results[i].id;
+    let backdrop_path= data.results[i].backdrop_path;
+    let rating= data.results[i].rating;
+    let overview=data.results[i].overview;
+
+   let credits = await fetch(
+            'https://api.themoviedb.org/3/movie/12/credits?language=en-US', options
+        )
+        .then((response) => response.json())
+        .then((result) => {return result;})
+        .catch((err) => console.error(err)); 
+let actors =[];
+
+for (let i = 0; i < 4; i++) {
+   if (credits.cast[i].known_for_department=="Acting") {
+    let name=credits.cast[i].name;
+    let image="https://image.tmdb.org/t/p/original" +(credits.cast[i].profile_path);
+    actors.push(new actor(image,name));
+   }
+    
+}
+let directors=[];
+for (let i = 0; i < credits.cast.length; i++) {
+    if(credits.cast[i].known_for_department=="Directing") {
+        let name=credits.cast[i].name;
+        directors.push(name);
+    }
+    
+}
   }();
 
