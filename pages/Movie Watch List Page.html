@@ -26,47 +26,28 @@
   </head>
 
   <body>
-    <div class="header">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-6">
-            <img
-              class="logo"
-              src="../assets/images/lookLogo.png"
-              alt="look logo"
-            />
-          </div>
 
-          <div class="col-6">
-            <div class="headerText">
-              <div class="containText">
-                <div class="homeText">Home</div>
-                <div class="headerMoviestext">Movies</div>
-                <div class="seriesText">Series</div>
-                <div class="myListText">My List</div>
-              </div>
-              <div class="signIn">
-                <button
-                  class="buttonSignin"
-                  type="button"
-                  class="btn btn-primary btn-lg"
-                >
-                  Sign In
-                </button>
-              </div>
+    <div class="temporary Navbar">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link" href="#">Features</a>
+              <a class="nav-link" href="#">Pricing</a>
+              <a class="nav-link disabled" aria-disabled="true">Disabled</a>
             </div>
           </div>
         </div>
-      </div>
+      </nav>
     </div>
 
-    <div class="homeHero">
-      <div class="container py-4">
-        <div class="row">
-          <div class="col-12 text-center">
-            <h1>Heading 1</h1>
-          </div>
-        </div>
+    <div class="watchtop">
+            <div class="container py-4">
         <form class="row g-3 justify-content-center mb-4">
           <div class="col-md-2">
             <label class="form-label visually-hidden">Genre</label>
@@ -75,31 +56,38 @@
               <option>Action</option>
               <option>Drama</option>
               <option>Comedy</option>
+              <option>Sci_Fi</option>
+              <option>Romance</option>
+              <option>Thriller</option>
+              <option>Fantasy</option>
             </select>
           </div>
           <div class="col-md-2">
             <label class="form-label visually-hidden">Rating</label>
             <select class="form-select">
               <option selected>Rating</option>
-              <option>PG</option>
-              <option>13</option>
-              <option>16</option>
-            </select>
-          </div>
-          <div class="col-md-2">
-            <label class="form-label visually-hidden">Language</label>
-            <select class="form-select">
-              <option selected>Language</option>
-              <option>English</option>
-              <option>Spanish</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
             </select>
           </div>
           <div class="col-md-2">
             <label class="form-label visually-hidden">Year</label>
             <select class="form-select">
               <option selected>Year</option>
+              <option>2025</option>
               <option>2024</option>
               <option>2023</option>
+              <option>2022</option>
+              <option>2021</option>
+              <option>2020</option>
             </select>
           </div>
           <div class="col-md-2">
@@ -110,190 +98,6 @@
               <option>Oldest</option>
             </select>
           </div>
-        </form>
-        <div class="row row-cols-1 row-cols-md-5 g-4">
-          <div class="col">
-            <div class="card h-100 p-2" style="border:1px solid #ffffff;">
-              <div style="height:180px; background:transparent; border:1.5px solid #ffffff;">
-                <div width="100%" height="100%">
-                </div>
-              </div>
-              <div class="card-body p-2">
-                <h5 class="card-title mb-1" style="font-size:1rem;">Title</h5>
-                <p class="card-text mb-2" style="font-size:0.9rem;">2024 R</p>
-                <div class="d-flex gap-2">
-                  <button class="btn btn-dark btn-sm">Play</button>
-                  <button class="btn btn-outline-dark btn-sm">
-                    Remove from My List
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card h-100 p-2" style="border:1px solid #ffffff;">
-              <div style="height:180px; background:transparent; border:1.5px solid #ffffff;">
-                <div width="100%" height="100%">
-                </div>
-              </div>
-              <div class="card-body p-2">
-                <h5 class="card-title mb-1" style="font-size:1rem;">Title</h5>
-                <p class="card-text mb-2" style="font-size:0.9rem;">2024 R</p>
-                <div class="d-flex gap-2">
-                  <button class="btn btn-dark btn-sm">Play</button>
-                  <button class="btn btn-outline-dark btn-sm">
-                    Remove from My List
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card h-100 p-2" style="border:1px solid #ffffff;">
-              <div style="height:180px; background:transparent; border:1.5px solid #ffffff;">
-                <div width="100%" height="100%">
-                </div>
-              </div>
-              <div class="card-body p-2">
-                <h5 class="card-title mb-1" style="font-size:1rem;">Title</h5>
-                <p class="card-text mb-2" style="font-size:0.9rem;">2024 R</p>
-                <div class="d-flex gap-2">
-                  <button class="btn btn-dark btn-sm">Play</button>
-                  <button class="btn btn-outline-dark btn-sm">
-                    Remove from My List
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card h-100 p-2" style="border:1px solid #ffffff;">
-              <div style="height:180px; background:transparent; border:1.5px solid #ffffff;">
-                <div width="100%" height="100%">
-                </div>
-              </div>
-              <div class="card-body p-2">
-                <h5 class="card-title mb-1" style="font-size:1rem;">Title</h5>
-                <p class="card-text mb-2" style="font-size:0.9rem;">2024 R</p>
-                <div class="d-flex gap-2">
-                  <button class="btn btn-dark btn-sm">Play</button>
-                  <button class="btn btn-outline-dark btn-sm">
-                    Remove from My List
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card h-100 p-2" style="border:1px solid #ffffff;">
-              <div style="height:180px; background:transparent; border:1.5px solid #ffffff;">
-                <div width="100%" height="100%">
-                </div>
-              </div>
-              <div class="card-body p-2">
-                <h5 class="card-title mb-1" style="font-size:1rem;">Title</h5>
-                <p class="card-text mb-2" style="font-size:0.9rem;">2024 R</p>
-                <div class="d-flex gap-2">
-                  <button class="btn btn-dark btn-sm">Play</button>
-                  <button class="btn btn-outline-dark btn-sm">
-                    Remove from My List
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card h-100 p-2" style="border:1px solid #ffffff;">
-              <div style="height:180px; background:transparent; border:1.5px solid #ffffff;">
-                <div width="100%" height="100%">
-                </div>
-              </div>
-              <div class="card-body p-2">
-                <h5 class="card-title mb-1" style="font-size:1rem;">Title</h5>
-                <p class="card-text mb-2" style="font-size:0.9rem;">2024 R</p>
-                <div class="d-flex gap-2">
-                  <button class="btn btn-dark btn-sm">Play</button>
-                  <button class="btn btn-outline-dark btn-sm">
-                    Remove from My List
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card h-100 p-2" style="border:1px solid #ffffff;">
-              <div style="height:180px; background:transparent; border:1.5px solid #ffffff;">
-                <div width="100%" height="100%">
-                </div>
-              </div>
-              <div class="card-body p-2">
-                <h5 class="card-title mb-1" style="font-size:1rem;">Title</h5>
-                <p class="card-text mb-2" style="font-size:0.9rem;">2024 R</p>
-                <div class="d-flex gap-2">
-                  <button class="btn btn-dark btn-sm">Play</button>
-                  <button class="btn btn-outline-dark btn-sm">
-                    Remove from My List
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card h-100 p-2" style="border:1px solid #ffffff;">
-              <div style="height:180px; background:transparent; border:1.5px solid #ffffff;">
-                <div width="100%" height="100%">
-                </div>
-              </div>
-              <div class="card-body p-2">
-                <h5 class="card-title mb-1" style="font-size:1rem;">Title</h5>
-                <p class="card-text mb-2" style="font-size:0.9rem;">2024 R</p>
-                <div class="d-flex gap-2">
-                  <button class="btn btn-dark btn-sm">Play</button>
-                  <button class="btn btn-outline-dark btn-sm">
-                    Remove from My List
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card h-100 p-2" style="border:1px solid #ffffff;">
-              <div style="height:180px; background:transparent; border:1.5px solid #ffffff;">
-                <div width="100%" height="100%">
-                </div>
-              </div>
-              <div class="card-body p-2">
-                <h5 class="card-title mb-1" style="font-size:1rem;">Title</h5>
-                <p class="card-text mb-2" style="font-size:0.9rem;">2024 R</p>
-                <div class="d-flex gap-2">
-                  <button class="btn btn-dark btn-sm">Play</button>
-                  <button class="btn btn-outline-dark btn-sm">
-                    Remove from My List
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card h-100 p-2" style="border:1px solid #ffffff;">
-              <div style="height:180px; background:transparent; border:1.5px solid #ffffff;">
-                <div width="100%" height="100%">
-                </div>
-              </div>
-              <div class="card-body p-2">
-                <h5 class="card-title mb-1" style="font-size:1rem;">Title</h5>
-                <p class="card-text mb-2" style="font-size:0.9rem;">2024 R</p>
-                <div class="d-flex gap-2">
-                  <button class="btn btn-dark btn-sm">Play</button>
-                  <button class="btn btn-outline-dark btn-sm">
-                    Remove from My List
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
 
     <div class="homeBack">
@@ -337,25 +141,13 @@
           <div class="col-6">
             <div class="footerMedia">
               <div class="instagramContainer">
-                <img
-                  class="instagram"
-                  src="../assets/images/instagram.png"
-                  alt="instagram logo"
-                />
+                <img class="instagram" src="../assets/images/instagram.png" alt="instagram logo" />
               </div>
               <div class="twitterContainer">
-                <img
-                  class="twitter"
-                  src="../assets/images/twitter.png"
-                  alt="twitter logo"
-                />
+                <img class="twitter" src="../assets/images/twitter.png" alt="twitter logo" />
               </div>
               <div class="youtubeContainer">
-                <img
-                  class="youtube"
-                  src="../assets/images/youtube.png"
-                  alt="youtube logo"
-                />
+                <img class="youtube" src="../assets/images/youtube.png" alt="youtube logo" />
               </div>
             </div>
           </div>

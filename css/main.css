@@ -404,3 +404,60 @@
   justify-content:center; 
   margin-top:32px;
 }
+
+.librarytop {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #b13bff;
+  background-image: url(../assets/images/placeholderbackgroundimg.jpeg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.librarybottom{
+  min-height: 100vh;
+  width: 100%;
+  background-color: #471396;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.librarytop .toptextLibraryone {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.librarytop .toptextLibrarytwo {
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
+.buttononlibrary {
+  position: absolute;
+  right: 7%;
+  bottom: 18%;
+  background: #221f1f;
+  color: #fff;
+  border: none;
+  padding: 14px 48px;
+  font-size: 1.1rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  cursor: pointer;
+}
+
+.librarycards{
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 24px; 
+  justify-content: center;
+}
+
+.watchtop {
+  height: 978px;
+  width: auto;
+  background-color: #b13bff;
+}
