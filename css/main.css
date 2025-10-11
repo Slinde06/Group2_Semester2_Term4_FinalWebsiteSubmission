@@ -409,24 +409,30 @@
   min-height: 100vh;
   width: 100%;
   background-color: #b13bff;
-background-image: url();
+  background-image: url(../assets/images/placeholderbackgroundimg.jpeg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .librarybottom{
-  height: 978px;
-  width: auto;
+  min-height: 100vh;
+  width: 100%;
   background-color: #471396;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .librarytop .toptextLibraryone {
   font-size: 2.5rem;
   font-weight: 600;
-  color: #000000;
+  color: #ffffff;
 }
 
 .librarytop .toptextLibrarytwo {
   font-size: 1.2rem;
-  color: #221f1f;
+  color: #ffffff;
 }
 
 .buttononlibrary {
@@ -443,3 +449,15 @@ background-image: url();
   cursor: pointer;
 }
 
+.librarycards{
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 24px; 
+  justify-content: center;
+}
+
+.watchtop {
+  height: 978px;
+  width: auto;
+  background-color: #b13bff;
+}
