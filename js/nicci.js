@@ -1,3 +1,15 @@
+class WatchList {
+  constructor(id, name, year, image, genres, lang, rating) {
+    this.id = id;
+    this.name = name;
+    this.year = year;
+    this.image = image;
+    this.genres = genres;
+    this.lang = lang;
+    this.rating = rating;
+  }
+}
+
 class Library {
     constructor(title,id,genres,image,year,rating) {
         this.title = title;
@@ -19,7 +31,7 @@ class Featured {
     }
 }
 
-
+//API functions
 !(async function () {
   const options = {
     method: "GET",
@@ -29,8 +41,6 @@ class Featured {
         "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4NDU3MzgzY2VjNzAxNjA3ZDU2MzNhM2JhNWE2NWIyOCIsIm5iZiI6MTc1ODA0ODgzMy44MzEsInN1YiI6IjY4YzliMjQxNzEzMjEzNTg2NjgwNTA3MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ZJove7Zugq6BpkyvUOYrd2JbApgx3K0lzQRKXoTWVU8",
     },
   };
-
-
 //populate the genres dropdown from the api
   let genres = await fetch(
     'https://api.themoviedb.org/3/genre/movie/list?language=en', options
@@ -45,8 +55,7 @@ class Featured {
     `
   });
 
-
-  //get 3 featured movies for the hero slider as well as info needed for later JS coding
+ //get 3 featured movies for the hero slider as well as info needed for later JS coding
     let featured = await fetch(
     'https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1', options
   )
@@ -71,17 +80,59 @@ class Featured {
         featuredMovies.push((window["movie_" + i]) = new Featured(title,id,backdrop,tagline));
     }
     
-    // api call for main library page as well as filters
-    let libraryMovies = [];
 
-    let library = await fetch(
-   'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', options
+//call for popular movies
+
+  let data = await fetch(
+    "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
+    options
   )
     .then((response) => response.json())
-    .then((result) => {return result;})
+    .then((result) => {
+      return result;
+    })
     .catch((err) => console.error(err));
-  
-    for (let i = 0; i < library.results.length; i++) {
+
+
+    //Temp watchlist code
+  let tempWatchList = [];
+
+  for (let i = 0; i < data.results.length; i++) {
+    let id = data.results[i].id;
+    let details = await fetch(
+      "https://api.themoviedb.org/3/movie/" + id + "?language=en-US&page=1",
+      options
+    )
+      .then((response) => response.json())
+      .then((result) => {
+        return result;
+      })
+      .catch((err) => console.error(err));
+
+    let title = data.results[i].title;
+    let image = "https://image.tmdb.org/t/p/w500" + data.results[i].poster_path;
+    let year = data.results[i].release_date.slice(0, 4);
+    let genres = details.genres;
+    let language = data.results[i].original_language;
+    let rating = data.results[i].vote_average;
+
+    tempWatchList.push(
+      (window["movie_" + i] = new WatchList(
+        id,
+        title,
+        year,
+        image,
+        genres,
+        language,
+        rating
+      ))
+    );
+  }
+
+
+  //Library page code
+    for (let i = 0; i < library.results.length; i++) 
+    {
         let title = library.results[i].title;
         let id = library.results[i].id;
         let image = library.results[i].poster_path;
@@ -91,60 +142,97 @@ class Featured {
         
         libraryMovies.push((window["movie_" + i]) = new Library(title,id,genres,image,year,rating))
     }
+    DisplayLibraryCards(libraryMovies,"placeholderID");
 
-    DisplayMovies(libraryMovies);
 
-
-    //filtering for the genres
-
-    function FilterGenre(){
+    //Filtering for genres
+     function FilterGenre()
+    {
         let filter = document.getElementById("genreFilter");
         let selectedID = filter.options[filter.selectedIndex].id;
         let filteredMovies = libraryMovies.filter(movie => {
             return movie.genres.contains(selectedID);
         })
-        DisplayMovies(filteredMovies);
+        DisplayLibraryMovies(filteredMovies);
     }
 
     //filtering for year
-    function FilterYear() {
+    function FilterYear() 
+    {
         let filterYear = document.getElementById("yearFilter").value;
-        let filteredMovies = libraryMovies.filter(movie => {
+        let filteredMovies = libraryMovies.filter(movie => 
+        {
             return movie.year == filterYear;
         })
-        DisplayMovies(filteredMovies);
+        DisplayLibraryMovies(filteredMovies);
     }
 
     //filtering for rating
-    function FilterRating() {
+    function FilterRating() 
+    {
         let filterRating = parseInt(document.getElementById("ratingFilter").value);
-        let filteredMovies = libraryMovies.filter(movie => {
+        let filteredMovies = libraryMovies.filter(movie => 
+        {
             return parseInt(movie.rating) <= filterRating;
         })
-        DisplayMovies(filteredMovies);
+        DisplayLibraryMovies(filteredMovies);
     }
     
     //filtering ascending and descending popularity
-    function FilterOrder() {
+    function FilterOrder() 
+    {
         let filterOrder = document.getElementById("ratingFilter").value;
-        if (filterOrder == "Ascending") {
+        if (filterOrder == "Ascending") 
+        {
             libraryMovies.sort((a,b) => a - b);
-            DisplayMovies(libraryMovies);
-        }else{
+            DisplayLibraryMovies(libraryMovies);
+        }
+        else
+        {
             libraryMovies.sort((a,b) => b - a);
-            DisplayMovies(libraryMovies);
+            DisplayLibraryMovies(libraryMovies);
         }
  
-        DisplayMovies(filteredMovies);
+    
     }   
 
+  console.log(tempWatchList);
+
+  tempWatchList.forEach((movie) => {
+    document.getElementById("watchList").innerHTML += `
+    <div class="col">
+            <div class="card h-100 p-2" style="border:1px solid #ffffff;">
+              <div style="height:180px; background:transparent; border:1.5px solid #ffffff;">
+                <div width="100%" height="100%">
+               
+                </div>
+              </div>
+              <div class="card-body p-2">
+                <h5 class="card-title mb-1" style="font-size:1rem;">${movie.name}</h5>
+                <p class="card-text mb-2" style="font-size:0.9rem;">${movie.year} R</p>
+                <div class="d-flex gap-2">
+                  <button class="btn btn-dark btn-sm">Play</button>
+                  <button class="btn btn-outline-dark btn-sm">
+                    Remove from My List
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+    `;
+  });
 
 })();
 
-
-//display the movies on the library page
-function DisplayMovies(_movies) {
+function DisplayLibraryCards(movieArray, displayContainerID) 
+{
     _movies.forEach(movie => {
-        $('#LibraryDisplay').html('')
+    $(displayContainerID).html('')
     });
+}
+
+
+function DisplayHomePageCards(movieArray, displayContainerID) 
+{
+    
 }
