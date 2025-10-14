@@ -38,7 +38,7 @@
   background-color: #ffffff;
 }
 .homeHero {
-  height: 978px;
+  height: fit-content;
   width: auto;
   background-color: #b13bff;
 }
@@ -461,3 +461,30 @@
   width: auto;
   background-color: #b13bff;
 }
+
+*, *::after, *::before {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Open Sans", sans-serif;
+  color: #2c343b;
+  background-color: #f2f2f2;
+}
+
+a {
+  color: #d44457;
+  text-decoration: none;
+}
+
+img, video {
+  max-width: 100%;
+}
+
+
