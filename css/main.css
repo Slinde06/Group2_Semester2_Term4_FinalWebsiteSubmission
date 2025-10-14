@@ -44,7 +44,7 @@
 }
 
 .homeBack {
-  height: 1680px;
+  height: 200%;
   width: auto;
   background-color: #471396;
 }
@@ -53,24 +53,24 @@
   color: #ffffff;
   font-family: "Urbanist", sans-serif;
   font-size: 40px;
-  padding-top: 343px;
-  padding-left: 184px;
+  padding-top: 22%;
+  padding-left: 13%;
 }
 
 .trendingNow {
   color: #ffffff;
   font-family: "Urbanist", sans-serif;
   font-size: 40px;
-  padding-left: 184px;
-  padding-top: 23px;
+  padding-left: 13%;
+  padding-top: 3%;
 }
 
 .genres {
   color: #ffffff;
   font-family: "Urbanist", sans-serif;
   font-size: 40px;
-  padding-left: 184px;
-  padding-top: 23px;
+  padding-left: 13%;
+  padding-top: 3%;
 }
 
 .continueMovies {
@@ -102,39 +102,41 @@
 }
 
 .contain1 {
-  padding-left: 184px;
-  padding-top: 26px;
+  padding-left: 13%;
+  padding-top: 3%;
 }
 
 .contain2 {
-  padding-left: 184px;
-  padding-top: 26px;
+  padding-left: 13%;
+  padding-top: 3%;
 }
 
 .contain3 {
-  padding-left: 184px;
-  padding-top: 26px;
+  padding-left: 13%;
+  padding-top: 3%;
 }
 
 .contain4 {
-  padding-left: 184px;
-  padding-top: 26px;
+  padding-left: 13%;
+  padding-top: 3%;
+  padding-bottom: 5%;
 }
 
 .contain5 {
-  padding-left: 184px;
-  padding-top: 26px;
+  padding-left: 13%;
+  padding-top: 3%;
 }
 
 .topPicks {
   color: #ffffff;
   font-family: "Urbanist", sans-serif;
   font-size: 40px;
-  padding-left: 184px;
-  padding-top: 32px;
+  padding-left: 13%;
+  padding-top: 3%;
 }
 
 .footer {
+  padding: 0%;
   height: 64px;
   width: 100%;
   background-color: #ffffff;
@@ -143,57 +145,48 @@
 .footerText {
   color: #471396;
   text-align: center;
-  padding-top: 20px;
+  padding-top: 5%;
+  padding-left: 13%;
   display: flex;
   flex-direction: row;
-  padding-top: 16;
-  padding-left: 53.3335px;
-  padding-bottom: 26px;
 }
 
 .about {
-  padding-right: 42.67px;
+  padding-right: 10%;
 }
 
 .helpCenter {
-  padding-right: 42.67px;
+  padding-right: 10%;
 }
 
 .terms {
-  padding-right: 42.67px;
+  padding-right: 10%;
 }
 
 .footerMedia {
-  padding-right: 192px;
   display: flex;
   flex-direction: row-reverse;
-  padding-top: 17px;
+  padding-top: 3%;
 }
 
 .youtube {
-  height: 33px;
+  height: 30%;
 }
 
 .youtubeContainer {
-  padding-right: 40px;
+  width: 50px;
 }
 
 .twitter {
-  height: 33px;
+  height: 30%;
 }
 
 .twitterContainer {
-  padding-right: 40px;
+  width: 50px;
 }
 
 .instagram {
-  height: 33px;
-}
-
-.logo {
-  height: 80px;
-  padding-left: 53px;
-  padding-top: 18px;
+  height: 30%;
 }
 
 .headerText {
@@ -231,6 +224,12 @@
 .containText {
   display: flex;
   flex-direction: row;
+}
+
+/* Site logo in the navbar */
+.logoMain {
+  width: 60px; /* increased from 30px */
+  height: auto; /* keep aspect ratio */
 }
 
 .individualHero {
@@ -360,45 +359,50 @@
   padding-top: 10px;
 }
 
-.toptextLibraryone{
-  font-size:2rem; 
-  font-weight:500;
-  color:#000000;
+.toptextLibraryone {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #000000;
 }
 
-.toptextLibrarytwo{
-  font-size:1rem; 
-  color:#000000; 
-  margin-top:8px;
+.toptextLibrarytwo {
+  font-size: 1rem;
+  color: #000000;
+  margin-top: 8px;
 }
 
-.buttononlibrary{
-  position:absolute;
-    right:7%;
-    bottom:12%;
-    background:#221f1f;
-    color:#fff;
-    border:none;
-    padding:8px 24px;
-    font-size:1rem;
-    border-radius:2px;
-    cursor:pointer;
+.buttononlibrary {
+  position: absolute;
+  right: 7%;
+  bottom: 12%;
+  background: #221f1f;
+  color: #fff;
+  border: none;
+  padding: 8px 24px;
+  font-size: 1rem;
+  border-radius: 2px;
+  cursor: pointer;
 }
 
-.homebottom{
+.homebottom {
   height: 978px;
   width: auto;
   background-color: #471396;
 }
 
-.buttonbottomofwatch{
-  background:#221f1f; 
-  color:#fff; 
-  border:none; 
-  padding:14px 64px; 
-  font-size:1rem;
+.buttonbottomofwatch {
+  background: #221f1f;
+  color: #fff;
+  border: none;
+  padding: 14px 64px;
+  font-size: 1rem;
 }
 
+.buttondiv {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+}
 .buttondiv{
   display:flex; 
   justify-content:center; 
