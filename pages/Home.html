@@ -17,7 +17,11 @@
     rel="stylesheet"
     />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/slider.css" />
     <link rel="stylesheet" href="../css/main.css" />
+
+     
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -99,31 +103,37 @@
     </div> -->
     <div class="homeHero">
       <section class="cd-hero js-cd-hero js-cd-autoplay">
-		<ul class="cd-hero__slider">
+		  <ul class="cd-hero__slider">
 			<li id="FeaturedMovieBackground1" class="cd-hero__slide js-cd-slide cd-hero__slide--selected">
 				<div class="cd-hero__content cd-hero__content--half-width">
 					<h2 id="FeaturedMovieTitle1">Movie title</h2>
 					<p id="FeaturedMovieDesc1">Movie one liner here</p>
-					<a href="" onclick="populateMoviePage()" class="cd-hero__btn">View page</a>
+				<div class="HeaderButtons">
+          <a href="" onclick="populateMoviePage()" class="cd-hero__btn">View Movie</a>
 					<a onclick="addToList()" class="cd-hero__btn cd-hero__btn--secondary">Add to list</a>
+        </div>
 				</div> <!-- .cd-hero__content -->
 			</li> 
 
       <li  class="cd-hero__slide js-cd-slide">
-				<div class="cd-hero__content cd-hero__content--half-width">
+				<div id="FeaturedMovieBackground2" class="cd-hero__content cd-hero__content--half-width">
 					<h2 id="FeaturedMovieTitle2">Movie title</h2>
 					<p id="FeaturedMovieDesc2">Movie one liner here</p>
-					<a href="" onclick="populateMoviePage()" class="cd-hero__btn">View page</a>
+          <div class="HeaderButtons">
+          <a href="" onclick="populateMoviePage()" class="cd-hero__btn">View Movie</a>
 					<a onclick="addToList()" class="cd-hero__btn cd-hero__btn--secondary">Add to list</a>
+        </div>
 				</div> <!-- .cd-hero__content -->
 			</li>
 
       <li class="cd-hero__slide js-cd-slide">
-				<div  class="cd-hero__content cd-hero__content--half-width">
+				<div id="FeaturedMovieBackground3" class="cd-hero__content cd-hero__content--half-width">
 					<h2 id="FeaturedMovieTitle3">Movie title</h2>
 					<p id="FeaturedMovieDesc3">Movie one liner here</p>
-					<a href="" onclick="populateMoviePage()" class="cd-hero__btn">View page</a>
+          <div class="HeaderButtons">
+          <a href="" onclick="populateMoviePage()" class="cd-hero__btn">View Movie</a>
 					<a onclick="addToList()" class="cd-hero__btn cd-hero__btn--secondary">Add to list</a>
+        </div>
 				</div> <!-- .cd-hero__content -->
 			</li>
 		</ul> <!-- .cd-hero__slider -->
@@ -136,34 +146,75 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
+      </section>
     </div>
 
+
+<section class="homePageContent">
     <div class="homeBack">
       <div class="continueContainer">
         <div class="continueWatching">Continue Watching</div>
         <div class="contain1">
-          <div class="continueMovies"></div>
+          <div id="continueWatchingWrapper" class="wrapper">
+            <i id="left" class="fa-solid fa-angle-left"></i>
+            <ul id="continueWatchingContainer" class="movieCarousel">
+               <li class="MovieCard">
+               <div class="img"><img src="../assets/images/Placeholderimg.jpeg" alt="img" draggable="false"></div>
+               </li>
+            </ul>
+           <i id="right" class="fa-solid fa-angle-right"></i>
+          </div>
         </div>
       </div>
+    </div>
+
+
+
       <div class="topPicksContainer">
         <div class="topPicks">Top Picks</div>
-        <div class="contain2">
-          <div class="topMovies"></div>
+        <div class="contain1">
+          <div id="topPicksWrapper" class="wrapper">
+            <i id="left" class="fa-solid fa-angle-left"></i>
+            <ul id="topPicksContainer" class="movieCarousel">
+               <li class="MovieCard">
+               <div class="img"><img src="../assets/images/Placeholderimg.jpeg" alt="img" draggable="false"></div>
+               </li>
+            </ul>
+           <i id="right" class="fa-solid fa-angle-right"></i>
+          </div>
         </div>
       </div>
       <div class="trendingContainer">
         <div class="trendingNow">Trending Now</div>
-        <div class="contain3">
-          <div class="trendingMovies"></div>
+        <div class="contain1">
+          <div id="trendingWrapper" class="wrapper">
+            <i id="left" class="fa-solid fa-angle-left"></i>
+            <ul id="trendingContainer" class="movieCarousel">
+               <li class="MovieCard">
+               <div class="img"><img src="../assets/images/Placeholderimg.jpeg" alt="img" draggable="false"></div>
+               </li>
+            </ul>
+           <i id="right" class="fa-solid fa-angle-right"></i>
+          </div>
         </div>
       </div>
       <div class="genresContainer">
         <div class="genres">Genres</div>
-        <div class="contain4">
-          <div class="genres2"></div>
+        <div id="genreWrapper" class="contain1">
+         <div class="wrapper">
+            <i id="left" class="fa-solid fa-angle-left"></i>
+            <ul id="genreContainer" class="movieCarousel">
+               <li class="MovieCard">
+               <div class="img"><img src="../assets/images/Placeholderimg.jpeg" alt="img" draggable="false"></div>
+               </li>
+            </ul>
+           <i id="right" class="fa-solid fa-angle-right"></i>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
+
+
     <div class="footer">
       <div class="container-fluid">
         <div class="row"">
@@ -203,9 +254,9 @@
         </div>
       </div>
     </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    <script src="../js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="../js/jquery-3.7.1.min.js"></script>
     <script src="../js/rachel.js"></script>
-
+    <script src="../js/script.js"></script>
   </body>
 </html>
