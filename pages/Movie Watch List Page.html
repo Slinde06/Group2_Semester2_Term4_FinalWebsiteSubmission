@@ -27,24 +27,49 @@
 
   <body>
 
-    <div id="temporary Navbar" class="temporary Navbar">
-            <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img
+            class="logoMain"
+            id="logoMain"
+            src="../assets/images/lookLogos.png"
+            alt="Look Logo"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div
+          class="d-lg-flex flex-row justify-content-end collapse navbar-collapse"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#">Home</a>
-              <a class="nav-link" href="#">Features</a>
-              <a class="nav-link" href="#">Pricing</a>
-              <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-            </div>
-          </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Movies</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Series</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">My List</a>
+            </li>
+          </ul>
         </div>
-      </nav>
-    </div>
+      </div>
+    </nav>
 
     <div id="watchtop" class="watchtop">
             <div class="container py-4">
@@ -128,39 +153,51 @@
       </div>
     </div>
     
-    <div id="footer" class="footer">
+        <div class="footer">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-6">
-            <div class="footerText">
-              <div class="about">About</div>
-              <div class="helpCenter">Help Center</div>
-              <div class="terms">Terms</div>
-              <div class="privacy">Privacy</div>
+          <div class="col-6" style="height: 0px">
+            <div class="footerText" id="footerText">
+              <div class="about" id="about">About</div>
+              <div class="helpCenter" id="helpCenter">Help Center</div>
+              <div class="terms" id="terms">Terms</div>
+              <div class="privacy" id="privacy">Privacy</div>
             </div>
           </div>
-          <div class="col-6">
-            <div class="footerMedia">
-              <div class="instagramContainer">
-                <img class="instagram" src="../assets/images/instagram.png" alt="instagram logo" />
+          <div class="col-6" style="height: 0px">
+            <div class="footerMedia" id="footerMedia">
+              <div class="instagramContainer" id="instagramContainer">
+                <img
+                  class="instagram"
+                  id="instagram"
+                  src="../assets/images/instagram.png"
+                  alt="instagram logo"
+                />
               </div>
-              <div class="twitterContainer">
-                <img class="twitter" src="../assets/images/twitter.png" alt="twitter logo" />
+              <div class="twitterContainer" id="twitterContainer">
+                <img
+                  class="twitter"
+                  id="twitter"
+                  src="../assets/images/twitter.png"
+                  alt="twitter logo"
+                />
               </div>
-              <div class="youtubeContainer">
-                <img class="youtube" src="../assets/images/youtube.png" alt="youtube logo" />
+              <div class="youtubeContainer" id="youtubeContainer">
+                <img
+                  class="youtube"
+                  id="youtube"
+                  src="../assets/images/youtube.png"
+                  alt="youtube logo"
+                />
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    </div>
-    
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/rachel.js"></script>
+    <script src="../js/script.js"></script>
   </body>
 </html>
