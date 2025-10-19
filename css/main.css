@@ -38,7 +38,7 @@
   background-color: #ffffff;
 }
 .homeHero {
-  height: 978px;
+  height: fit-content;
   width: auto;
   background-color: #b13bff;
 }
