@@ -1,3 +1,5 @@
+
+//featured hero section JS
 (function(){
 	//remove no-js class
     removeClass(document.getElementsByTagName("html")[0], "no-js"); 
