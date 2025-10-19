@@ -25,45 +25,55 @@
     <link rel="stylesheet" href="../css/main.css" />
   </head>
   <body>
-    <div class="header">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
-        <div class="row">
-          <div class="col-6">
-            <img
-              class="logo"
-              src="../assets/images/lookLogo.png"
-              alt="look logo"
-            />
-          </div>
+        <a class="navbar-brand" href="#">
+          <img
+            class="logoMain"
+            id="logoMain"
+            src="../assets/images/lookLogos.png"
+            alt="Look Logo"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-          <div class="col-6">
-            <div class="headerText">
-              <div class="containText">
-                <div class="homeText">Home</div>
-                <div class="headerMoviestext">Movies</div>
-                <div class="seriesText">Series</div>
-                <div class="myListText">My List</div>
-              </div>
-              <div class="signIn">
-                <button
-                  class="buttonSignin"
-                  type="button"
-                  class="btn btn-primary btn-lg"
-                >
-                  Sign In
-                </button>
-              </div>
-            </div>
-          </div>
+        <div
+          class="d-lg-flex flex-row justify-content-end collapse navbar-collapse"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Movies</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Series</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" aria-disabled="true">My List</a>
+            </li>
+          </ul>
         </div>
       </div>
-    </div>
-    <div class="individualHero">
-      <div class="movieTitle">Title</div>
-      <div class="director">Director</div>
-      <img class="star" src="../assets/images/stars.png" alt="star" />
-      <div class="synopsisContainer">
-        <div class="synopsis">
+    </nav>
+    <div class="individualHero" id="individualHero">
+      <div class="movieTitle" id="movieTitle">Title</div>
+      <div class="director" id="director">Director</div>
+      <img class="star" id="star" src="../assets/images/stars.png" alt="star" />
+      <div class="synopsisContainer" id="synopsisContainer">
+        <div class="synopsis" id="Synopsis">
           Synopsis: Lorem ipsum dolor sit amet, consec tetur adipiscing elit.
           Nam condimentum tempus diam, ultricies sollicitudin erat facilisis
           eget. Vestibulum rhoncus dui vel eros laoreet
@@ -72,8 +82,8 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-6">
-            <div class="buttonContainer">
-              <div class="firstButton">
+            <div class="buttonContainer" id="buttonContainer">
+              <div class="firstButton" id="firstButton">
                 <button
                   type="button"
                   class="btn btn-primary"
@@ -87,7 +97,7 @@
                   Play
                 </button>
               </div>
-              <div class="secondButton">
+              <div class="secondButton" id="secondButton">
                 <button
                   type="button"
                   class="btn btn-primary"
@@ -101,7 +111,7 @@
                   Trailer
                 </button>
               </div>
-              <div class="thirdButton">
+              <div class="thirdButton" id="thirdButton">
                 <button
                   type="button"
                   class="btn btn-primary"
@@ -117,77 +127,82 @@
               </div>
             </div>
           </div>
-          <div class="paragraph">Paragraph</div>
+          <div class="paragraph" id="paragraph">Paragraph</div>
           <div class="col-6">
-            <div class="paragraphContainer">
-              <div class="paragraphBlock"></div>
+            <div class="paragraphContainer" id="paragraphContainer">
+              <div class="paragraphBlock" id="paragraphBlock"></div>
             </div>
           </div>
-          <div class="actors">Actors</div>
+          <div class="actors" id="actors">Actors</div>
           <div class="col-6">
-            <div class="circleContainer">
-              <div class="circle1"></div>
+            <div class="circleContainer" id="circleContainer">
+              <div class="circle1" id="circle1"></div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="individualBack">
-      <div class="moreContainer">
-        <div class="moreLikeThis">More Like This</div>
-        <div class="contain5">
-          <div class="moreMovies"></div>
+    <div class="individualBack" id="individualBack">
+      <div class="moreContainer" id="moreContainer">
+        <div class="moreLikeThis" id="moreLikeThis">More Like This</div>
+        <div class="contain5" id="contain5">
+          <div class="moreMovies" id="moreMovies"></div>
         </div>
       </div>
-      <div class="continueContainer">
-        <div class="continueWatching2">Continue Watching</div>
-        <div class="contain1">
-          <div class="continueMovies"></div>
+      <div class="continueContainer" id="continueContainer">
+        <div class="continueWatching2" id="continueWatching2">
+          Continue Watching
+        </div>
+        <div class="contain1" id="contain1">
+          <div class="continueMovies" id="continueMovies"></div>
         </div>
       </div>
-      <div class="topPicksContainer">
-        <div class="topPicks">Top Picks</div>
-        <div class="contain2">
-          <div class="topMovies"></div>
+      <div class="topPicksContainer" id="topPicksContainer">
+        <div class="topPicks" id="topPicks">Top Picks</div>
+        <div class="contain2" id="contain2">
+          <div class="topMovies" id="topMovies"></div>
         </div>
       </div>
-      <div class="trendingContainer">
-        <div class="trendingNow">Trending Now</div>
-        <div class="contain3">
-          <div class="trendingMovies"></div>
+      <div class="trendingContainer" id="trendingContainer">
+        <div class="trendingNow" id="trendingNow">Trending Now</div>
+        <div class="contain3" id="contain3">
+          <div class="trendingMovies" id="trendingMovies"></div>
         </div>
       </div>
     </div>
-    <div class="footer">
+    <div class="footer" id="footer">
       <div class="container-fluid">
         <div class="row">
           <div class="col-6">
-            <div class="footerText">
-              <div class="about">About</div>
-              <div class="helpCenter">Help Center</div>
-              <div class="terms">Terms</div>
-              <div class="privacy">Privacy</div>
+            <div class="footerText" id="footerText">
+              <div class="about" id="about">About</div>
+              <div class="helpCenter" id="helpCenter">Help Center</div>
+              <div class="terms" id="terms">Terms</div>
+              <div class="privacy" id="privacy">Privacy</div>
             </div>
           </div>
           <div class="col-6">
-            <div class="footerMedia">
-              <div class="instagramContainer">
+            <div class="footerMedia" id="footerMedia">
+              <div class="instagramContainer" id="instagramContainer">
                 <img
                   class="instagram"
+                  id="instagram"
                   src="../assets/images/instagram.png"
                   alt="instagram logo"
                 />
               </div>
-              <div class="twitterContainer">
+              <div class="twitterContainer" id="twitterContainer">
                 <img
                   class="twitter"
+                  id="twitter"
                   src="../assets/images/twitter.png"
                   alt="twitter logo"
                 />
               </div>
-              <div class="youtubeContainer">
+              <div class="youtubeContainer" id="youtubeContainer">
                 <img
                   class="youtube"
+                  id="youtube"
                   src="../assets/images/youtube.png"
                   alt="youtube logo"
                 />
