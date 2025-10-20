@@ -71,13 +71,51 @@
     </nav>
 
     <div id="librarytop" class="librarytop">
-    <div style="position:absolute; left:7%; top:40%;">
-      <div class="toptextLibraryone">Featured Title</div>
-      <div class="toptextLibrarytwo">Short description</div>
-    </div>
-    <button class="buttononlibrary">
-      Watch Now
-    </button>
+<section class="cd-hero js-cd-hero js-cd-autoplay">
+		  <ul id="FeaturedSlider" class="cd-hero__slider">
+			<li id="FeaturedMovieBackground0" class="cd-hero__slide js-cd-slide cd-hero__slide--selected">
+				<div class="cd-hero__content cd-hero__content--half-width">
+					<h2 id="FeaturedMovieTitle0">Movie title</h2>
+					<p id="FeaturedMovieDesc0">Movie one liner here</p>
+				<div class="HeaderButtons">
+          <a href="" onclick="populateMoviePage()" class="cd-hero__btn">View Movie</a>
+					<a onclick="addToList()" class="cd-hero__btn cd-hero__btn--secondary">Add to list</a>
+        </div>
+				</div> <!-- .cd-hero__content -->
+			</li> 
+
+      <li  id="FeaturedMovieBackground1" class="cd-hero__slide js-cd-slide">
+				<div  class="cd-hero__content cd-hero__content--half-width">
+					<h2 id="FeaturedMovieTitle1">Movie title</h2>
+					<p id="FeaturedMovieDesc1">Movie one liner here</p>
+          <div class="HeaderButtons">
+          <a href="" onclick="populateMoviePage()" class="cd-hero__btn">View Movie</a>
+					<a onclick="addToList()" class="cd-hero__btn cd-hero__btn--secondary">Add to list</a>
+        </div>
+				</div> <!-- .cd-hero__content -->
+			</li>
+
+      <li id="FeaturedMovieBackground2" class="cd-hero__slide js-cd-slide">
+				<div  class="cd-hero__content cd-hero__content--half-width">
+					<h2 id="FeaturedMovieTitle2">Movie title</h2>
+					<p id="FeaturedMovieDesc2">Movie one liner here</p>
+          <div class="HeaderButtons">
+          <a href="" onclick="populateMoviePage()" class="cd-hero__btn">View Movie</a>
+					<a onclick="addToList()" class="cd-hero__btn cd-hero__btn--secondary">Add to list</a>
+        </div>
+				</div> <!-- .cd-hero__content -->
+			</li>
+		</ul> <!-- .cd-hero__slider -->
+    <!-- slider navigation buttons -->
+  <button class="carousel-control-prev " type="button">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+      </section>
    </div>
 
     <div id="librarybottom" class="librarybottom">
