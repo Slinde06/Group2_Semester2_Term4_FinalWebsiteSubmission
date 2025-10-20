@@ -54,6 +54,7 @@ class Featured {
         "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4NDU3MzgzY2VjNzAxNjA3ZDU2MzNhM2JhNWE2NWIyOCIsIm5iZiI6MTc1ODA0ODgzMy44MzEsInN1YiI6IjY4YzliMjQxNzEzMjEzNTg2NjgwNTA3MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ZJove7Zugq6BpkyvUOYrd2JbApgx3K0lzQRKXoTWVU8",
     },
   };
+
   //populate the genres dropdown from the api
   let genres = await fetch(
     "https://api.themoviedb.org/3/genre/movie/list?language=en",
@@ -114,56 +115,54 @@ class Featured {
 
   //call for popular movies
 
-  let data = await fetch(
-    "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
-    options
-  )
-    .then((response) => response.json())
-    .then((result) => {
-      return result;
-    })
-    .catch((err) => console.error(err));
+  // let data = await fetch(
+  //   "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
+  //   options
+  // )
+  //   .then((response) => response.json())
+  //   .then((result) => {
+  //     return result;
+  //   })
+  //   .catch((err) => console.error(err));
+
+  // //Temp watchlist code
+  // let tempWatchList = [];
+
+  // for (let i = 0; i < data.results.length; i++) {
+  //   let id = data.results[i].id;
+  //   let details = await fetch(
+  //     "https://api.themoviedb.org/3/movie/" + id + "?language=en-US&page=1",
+  //     options
+  //   )
+  //     .then((response) => response.json())
+  //     .then((result) => {
+  //       return result;
+  //     })
+  //     .catch((err) => console.error(err));
+
+  //   let title = data.results[i].title;
+  //   let image = "https://image.tmdb.org/t/p/w500" + data.results[i].poster_path;
+  //   let year = data.results[i].release_date.slice(0, 4);
+  //   let genres = details.genres;
+  //   let language = data.results[i].original_language;
+  //   let rating = data.results[i].vote_average;
+
+  //   tempWatchList.push(
+  //     (window["movie_" + i] = new WatchList(
+  //       id,
+  //       title,
+  //       year,
+  //       image,
+  //       genres,
+  //       language,
+  //       rating
+  //     ))
+  //   );
+  // }
+  // DisplayHomePageCards(tempWatchList,"#continueWatchingContainer");
 
 
-
-  //Temp watchlist code
-  let tempWatchList = [];
-
-  for (let i = 0; i < data.results.length; i++) {
-    let id = data.results[i].id;
-    let details = await fetch(
-      "https://api.themoviedb.org/3/movie/" + id + "?language=en-US&page=1",
-      options
-    )
-      .then((response) => response.json())
-      .then((result) => {
-        return result;
-      })
-      .catch((err) => console.error(err));
-
-    let title = data.results[i].title;
-    let image = "https://image.tmdb.org/t/p/w500" + data.results[i].poster_path;
-    let year = data.results[i].release_date.slice(0, 4);
-    let genres = details.genres;
-    let language = data.results[i].original_language;
-    let rating = data.results[i].vote_average;
-
-    tempWatchList.push(
-      (window["movie_" + i] = new WatchList(
-        id,
-        title,
-        year,
-        image,
-        genres,
-        language,
-        rating
-      ))
-    );
-  }
-  DisplayHomePageCards(tempWatchList,"#continueWatchingContainer");
-
-
-  //Library page code
+  //Library page API calls
   let library = await fetch(
     "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
     options
@@ -196,7 +195,7 @@ class Featured {
   }
   DisplayLibraryCards(libraryMovies, "#librarycards");
 
-  //recommendations
+  //recommendations API call
 
   let recommendations = await fetch(
     "https://api.themoviedb.org/3/movie/12/recommendations?language=en-US&page=1",
@@ -218,7 +217,7 @@ class Featured {
     recommended.push(new HomepageMovies(ID, poster));
   }
 
-  //toppicks
+  //top picks API call
 
   let toppicks = await fetch(
     "https://api.themoviedb.org/3/movie/12/recommendations?language=en-US&page=1",
@@ -239,7 +238,7 @@ class Featured {
   DisplayHomePageCards(top,"#topPicksContainer");
   
 
-  //trending
+  //trending APi call
 
   let trending = await fetch(
     "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
@@ -258,8 +257,9 @@ class Featured {
     trend.push(new HomepageMovies(ID, poster));
   }
   DisplayHomePageCards(trend,"#trendingContainer");
-  //comedy
-
+  
+  
+  //comedy API call
   let comedy = await fetch(
     "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
     options
@@ -317,8 +317,6 @@ while (i <credits.cast.length && actors.length<=4) {
     let name=credits.cast[i].name;
     let image="https://image.tmdb.org/t/p/original" +(credits.cast[i].profile_path);
     actors.push(new actor(image,name));
-    console.log(actors);
-    
    }
    i++;
 }
@@ -338,6 +336,8 @@ for (let i = 0; i < credits.cast.length; i++) {
   $("#Synopsis").html(overview);
   actors.forEach(cast =>{ $("#circleContainer").append("<img src="+cast.image+">")})
 
+
+
   //Filtering for genres
   try {
     $("#genreDropdown").on('change', function() {
@@ -346,8 +346,32 @@ for (let i = 0; i < credits.cast.length; i++) {
     let filteredMovies = libraryMovies.filter((movie) => { 
       return movie.genres.includes(parseInt(selectedID));
     });
-    console.log(filteredMovies)
-    DisplayFilterLibrary(filteredMovies,"#librarycards");
+    if (filteredMovies.length == 0) {
+     
+    }else{
+
+      DisplayFilterLibrary(filteredMovies,"#librarycards");
+    }
+    });
+  } catch (error) {
+    console.log(error);
+  }
+
+
+  //filtering for rating
+try {
+    $("#ratingDropdown").on('change', function() {
+    let filter = document.getElementById("ratingDropdown");
+    let selectedRating = filter.value;
+    let filteredMovies = libraryMovies.filter((movie) => { 
+      return movie.rating >= parseInt(selectedRating);
+    });
+    if (filteredMovies.length == 0) {
+     
+    }else{
+
+      DisplayFilterLibrary(filteredMovies,"#librarycards");
+    }
     });
   } catch (error) {
     console.log(error);
@@ -355,62 +379,47 @@ for (let i = 0; i < credits.cast.length; i++) {
 
 
   //filtering for year
-  function FilterYear() {
-    let filterYear = document.getElementById("yearFilter").value;
-    let filteredMovies = libraryMovies.filter((movie) => {
-      return movie.year == filterYear;
+try {
+    $("#yearDropdown").on('change', function() {
+    let filter = document.getElementById("yearDropdown");
+    let selectedYear = filter.value;
+    let filteredMovies = libraryMovies.filter((movie) => { 
+      return movie.year == parseInt(selectedYear);
     });
-    DisplayLibraryMovies(filteredMovies);
-  }
+    if (filteredMovies.length == 0) {
+     
+    }else{
 
-  //filtering for rating
-  function FilterRating() {
-    let filterRating = parseInt(document.getElementById("ratingFilter").value);
-    let filteredMovies = libraryMovies.filter((movie) => {
-      return parseInt(movie.rating) <= filterRating;
-    });
-    DisplayLibraryMovies(filteredMovies);
-  }
-
-  //filtering ascending and descending popularity
-  function FilterOrder() {
-    let filterOrder = document.getElementById("ratingFilter").value;
-    if (filterOrder == "Ascending") {
-      libraryMovies.sort((a, b) => a - b);
-      DisplayLibraryMovies(libraryMovies);
-    } else {
-      libraryMovies.sort((a, b) => b - a);
-      DisplayLibraryMovies(libraryMovies);
+      DisplayFilterLibrary(filteredMovies,"#librarycards");
     }
+    });
+  } catch (error) {
+    console.log(error);
+  }
+  
+  
+  //filtering for order
+  try {
+    $("#popularityDropdown").on('change', function() {
+    let filter = document.getElementById("popularityDropdown");
+    let selectedOrder = filter.value;
+      if (selectedOrder === "Oldest") {
+      libraryMovies.sort((a, b) => a.year - b.year);
+      DisplayFilterLibrary(libraryMovies,"#librarycards");
+    } else {
+      libraryMovies.sort((a, b) => b.year - a.year);
+      
+      DisplayFilterLibrary(libraryMovies,"#librarycards");
+    };
+    });
+  } catch (error) {
+    console.log(error);
   }
 
-  // try {
-  //   tempWatchList.forEach((movie) => {
-  //     document.getElementById("watchList").innerHTML += `
-  //   <div class="col">
-  //           <div class="card h-100 p-2" style="border:1px solid #ffffff;">
-  //             <div style="height:180px; background:transparent; border:1.5px solid #ffffff;">
-  //               <div width="100%" height="100%">
-               
-  //               </div>
-  //             </div>
-  //             <div class="card-body p-2">
-  //               <h5 class="card-title mb-1" style="font-size:1rem;">${movie.name}</h5>
-  //               <p class="card-text mb-2" style="font-size:0.9rem;">${movie.year} R</p>
-  //               <div class="d-flex gap-2">
-  //                 <button class="btn btn-dark btn-sm">Play</button>
-  //                 <button class="btn btn-outline-dark btn-sm">
-  //                   Remove from My List
-  //                 </button>
-  //               </div>
-  //             </div>
-  //           </div>
-  //         </div>
-  //   `;
-  //   });
-  // } catch (error) {}
+  
 
-  //slider home page code
+
+  //slider adapted JQuery code
 
 try {
   const wrapper = document.querySelector(".wrapper");
@@ -479,7 +488,7 @@ try {
   
   const infiniteScroll = () => {
     // If the carousel is at the beginning, scroll to the end
-    if (carousel.scrollLeft === 32) {
+    if (carousel.scrollLeft <= 32) {
       console.log("infinite scroll to left");
   
       carousel.classList.add("no-transition");
@@ -517,10 +526,12 @@ try {
   wrapper.addEventListener("mouseleave", autoPlay);
   
 } catch (error) {
-  
+  console.log(error);
 }
-//Featured movie slider JS
 
+
+
+//Featured movie slider JQuery JS
 (function heroSlider() {
   //remove no-js class
   removeClass(document.getElementsByTagName("html")[0], "no-js");
@@ -712,6 +723,8 @@ try {
 
 })();
 
+
+//Display Functions
 function DisplayLibraryCards(movieArray, displayContainerID) {
 	movieArray.forEach(movie => {
     let display = "<div class='col'><div class='card h-100'><img src='"+ movie.poster +"' class='card-img-top' alt='Poster'><div class='card-body d-flex flex-column'><h5 class='card-title'>"+movie.title+"</h5><p class='card-text mb-3'>"+movie.year+"</p><div class='mt-auto d-flex gap-2'><button class='btn btn-dark btn-sm'>Play ›</button><button class='btn btn-outline-secondary btn-sm'>Add To My List ›</button></div></div></div></div>"
@@ -742,9 +755,8 @@ function DisplayFeaturedMovies(movie, index) {
 
   $("#" + featuredMovieBGID).css(
     "background-image",
-    "url(" + movie.backdrop + ")"
+    "url(" + movie.backdrop + ")", "background", "no-repeat","background-size", "cover"
   );
   $("#" + featuredMovietitle).text(movie.title);
   $("#" + featuredMovieTagline).text(movie.tagline);
 }
-
