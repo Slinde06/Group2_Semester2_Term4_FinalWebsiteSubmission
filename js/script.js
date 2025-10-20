@@ -174,7 +174,7 @@ class Featured {
   for (let i = 0; i < library.results.length; i++) {
     let title = library.results[i].title;
     let id = library.results[i].id;
-    let image = library.results[i].poster_path;
+    let image = "https://image.tmdb.org/t/p/w500"+library.results[i].poster_path;
     let genres = library.results[i].title;
     let year = library.results[i].release_date.slice(0, 4);
     let rating = library.results[i].vote_average;
@@ -190,7 +190,7 @@ class Featured {
       ))
     );
   }
-  DisplayLibraryCards(libraryMovies, "placeholderID");
+  DisplayLibraryCards(libraryMovies, "#librarycards");
 
   //recommendations
 
@@ -364,137 +364,141 @@ class Featured {
     }
   }
 
-  try {
-    tempWatchList.forEach((movie) => {
-      document.getElementById("watchList").innerHTML += `
-    <div class="col">
-            <div class="card h-100 p-2" style="border:1px solid #ffffff;">
-              <div style="height:180px; background:transparent; border:1.5px solid #ffffff;">
-                <div width="100%" height="100%">
+  // try {
+  //   tempWatchList.forEach((movie) => {
+  //     document.getElementById("watchList").innerHTML += `
+  //   <div class="col">
+  //           <div class="card h-100 p-2" style="border:1px solid #ffffff;">
+  //             <div style="height:180px; background:transparent; border:1.5px solid #ffffff;">
+  //               <div width="100%" height="100%">
                
-                </div>
-              </div>
-              <div class="card-body p-2">
-                <h5 class="card-title mb-1" style="font-size:1rem;">${movie.name}</h5>
-                <p class="card-text mb-2" style="font-size:0.9rem;">${movie.year} R</p>
-                <div class="d-flex gap-2">
-                  <button class="btn btn-dark btn-sm">Play</button>
-                  <button class="btn btn-outline-dark btn-sm">
-                    Remove from My List
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-    `;
-    });
-  } catch (error) {}
+  //               </div>
+  //             </div>
+  //             <div class="card-body p-2">
+  //               <h5 class="card-title mb-1" style="font-size:1rem;">${movie.name}</h5>
+  //               <p class="card-text mb-2" style="font-size:0.9rem;">${movie.year} R</p>
+  //               <div class="d-flex gap-2">
+  //                 <button class="btn btn-dark btn-sm">Play</button>
+  //                 <button class="btn btn-outline-dark btn-sm">
+  //                   Remove from My List
+  //                 </button>
+  //               </div>
+  //             </div>
+  //           </div>
+  //         </div>
+  //   `;
+  //   });
+  // } catch (error) {}
 
   //slider home page code
 
-const wrapper = document.querySelector(".wrapper");
-const carousel = document.querySelector(".movieCarousel");
-const firstCardWidth = carousel.querySelector(".MovieCard").offsetWidth;
-const arrowBtns = document.querySelectorAll(".wrapper i");
-const carouselChildrens = [...carousel.children];
-
-
-let isDragging = false,
-  isAutoPlay = false,
-  startX,
-  startScrollLeft,
-  timeoutId;
-
-// Get the number of cards that can fit in the carousel at once
-let cardPerView = Math.round(carousel.offsetWidth / firstCardWidth);
-
-// Insert copies of the last few cards to beginning of carousel for infinite scrolling
-carouselChildrens
-  .slice(-cardPerView)
-  .reverse()
-  .forEach((card) => {
-    carousel.insertAdjacentHTML("afterbegin", card.outerHTML);
+try {
+  const wrapper = document.querySelector(".wrapper");
+  const carousel = document.querySelector(".movieCarousel");
+  const firstCardWidth = carousel.querySelector(".MovieCard").offsetWidth;
+  const arrowBtns = document.querySelectorAll(".wrapper i");
+  const carouselChildrens = [...carousel.children];
+  
+  
+  let isDragging = false,
+    isAutoPlay = false,
+    startX,
+    startScrollLeft,
+    timeoutId;
+  
+  // Get the number of cards that can fit in the carousel at once
+  let cardPerView = Math.round(carousel.offsetWidth / firstCardWidth);
+  
+  // Insert copies of the last few cards to beginning of carousel for infinite scrolling
+  carouselChildrens
+    .slice(-cardPerView)
+    .reverse()
+    .forEach((card) => {
+      carousel.insertAdjacentHTML("afterbegin", card.outerHTML);
+    });
+  
+  // Insert copies of the first few cards to end of carousel for infinite scrolling
+  carouselChildrens.slice(0, cardPerView).forEach((card) => {
+    carousel.insertAdjacentHTML("beforeend", card.outerHTML);
   });
-
-// Insert copies of the first few cards to end of carousel for infinite scrolling
-carouselChildrens.slice(0, cardPerView).forEach((card) => {
-  carousel.insertAdjacentHTML("beforeend", card.outerHTML);
-});
-
-// Scroll the carousel at appropriate postition to hide first few duplicate cards on Firefox
-carousel.classList.add("no-transition");
-carousel.scrollLeft = carousel.offsetWidth;
-carousel.classList.remove("no-transition");
-
-// Add event listeners for the arrow buttons to scroll the carousel left and right
-arrowBtns.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    if (btn.id == "left") {
-      carousel.scrollLeft -= firstCardWidth;
-    } else {
-      carousel.scrollLeft += firstCardWidth;
+  
+  // Scroll the carousel at appropriate postition to hide first few duplicate cards on Firefox
+  carousel.classList.add("no-transition");
+  carousel.scrollLeft = carousel.offsetWidth;
+  carousel.classList.remove("no-transition");
+  
+  // Add event listeners for the arrow buttons to scroll the carousel left and right
+  arrowBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      if (btn.id == "left") {
+        carousel.scrollLeft -= firstCardWidth;
+      } else {
+        carousel.scrollLeft += firstCardWidth;
+      }
+    });
+  });
+  
+  const dragStart = (e) => {
+    isDragging = true;
+    carousel.classList.add("dragging");
+    // Records the initial cursor and scroll position of the carousel
+    startX = e.pageX;
+    startScrollLeft = carousel.scrollLeft;
+  };
+  
+  const dragging = (e) => {
+    if (!isDragging) return; // if isDragging is false return from here
+    // Updates the scroll position of the carousel based on the cursor movement
+    carousel.scrollLeft = startScrollLeft - (e.pageX - startX);
+  };
+  
+  const dragStop = () => {
+    isDragging = false;
+    carousel.classList.remove("dragging");
+  };
+  
+  const infiniteScroll = () => {
+    // If the carousel is at the beginning, scroll to the end
+    if (carousel.scrollLeft === 32) {
+      console.log("infinite scroll to left");
+  
+      carousel.classList.add("no-transition");
+      carousel.scrollLeft = carousel.scrollWidth - 2 * carousel.offsetWidth;
+      carousel.classList.remove("no-transition");
     }
-  });
-});
-
-const dragStart = (e) => {
-  isDragging = true;
-  carousel.classList.add("dragging");
-  // Records the initial cursor and scroll position of the carousel
-  startX = e.pageX;
-  startScrollLeft = carousel.scrollLeft;
-};
-
-const dragging = (e) => {
-  if (!isDragging) return; // if isDragging is false return from here
-  // Updates the scroll position of the carousel based on the cursor movement
-  carousel.scrollLeft = startScrollLeft - (e.pageX - startX);
-};
-
-const dragStop = () => {
-  isDragging = false;
-  carousel.classList.remove("dragging");
-};
-
-const infiniteScroll = () => {
-  // If the carousel is at the beginning, scroll to the end
-  if (carousel.scrollLeft === 32) {
-    console.log("infinite scroll to left");
-
-    carousel.classList.add("no-transition");
-    carousel.scrollLeft = carousel.scrollWidth - 2 * carousel.offsetWidth;
-    carousel.classList.remove("no-transition");
-  }
-  // If the carousel is at the end, scroll to the beginning
-  else if (
-    Math.ceil(carousel.scrollLeft) ===
-    carousel.scrollWidth - carousel.offsetWidth
-  ) {
-    console.log("infinite scroll to right");
-    carousel.classList.add("no-transition");
-    carousel.scrollLeft = carousel.offsetWidth;
-    carousel.classList.remove("no-transition");
-  }
-
-  // Clear existing timeout & start autoplay if mouse is not hovering over carousel
-  clearTimeout(timeoutId);
-  if (!wrapper.matches(":hover")) autoPlay();
-};
-
-const autoPlay = () => {
-  if (window.innerWidth < 800 || !isAutoPlay) return; // Return if window is smaller than 800 or isAutoPlay is false
-  // Autoplay the carousel after every 2500 ms
-  timeoutId = setTimeout(() => (carousel.scrollLeft += firstCardWidth), 2500);
-};
-autoPlay();
-
-carousel.addEventListener("mousedown", dragStart);
-carousel.addEventListener("mousemove", dragging);
-document.addEventListener("mouseup", dragStop);
-carousel.addEventListener("scroll", infiniteScroll);
-wrapper.addEventListener("mouseenter", () => clearTimeout(timeoutId));
-wrapper.addEventListener("mouseleave", autoPlay);
-
+    // If the carousel is at the end, scroll to the beginning
+    else if (
+      Math.ceil(carousel.scrollLeft) ===
+      carousel.scrollWidth - carousel.offsetWidth
+    ) {
+      console.log("infinite scroll to right");
+      carousel.classList.add("no-transition");
+      carousel.scrollLeft = carousel.offsetWidth;
+      carousel.classList.remove("no-transition");
+    }
+  
+    // Clear existing timeout & start autoplay if mouse is not hovering over carousel
+    clearTimeout(timeoutId);
+    if (!wrapper.matches(":hover")) autoPlay();
+  };
+  
+  const autoPlay = () => {
+    if (window.innerWidth < 800 || !isAutoPlay) return; // Return if window is smaller than 800 or isAutoPlay is false
+    // Autoplay the carousel after every 2500 ms
+    timeoutId = setTimeout(() => (carousel.scrollLeft += firstCardWidth), 2500);
+  };
+  autoPlay();
+  
+  carousel.addEventListener("mousedown", dragStart);
+  carousel.addEventListener("mousemove", dragging);
+  document.addEventListener("mouseup", dragStop);
+  carousel.addEventListener("scroll", infiniteScroll);
+  wrapper.addEventListener("mouseenter", () => clearTimeout(timeoutId));
+  wrapper.addEventListener("mouseleave", autoPlay);
+  
+} catch (error) {
+  
+}
 //Featured movie slider JS
 
 (function heroSlider() {
@@ -689,7 +693,10 @@ wrapper.addEventListener("mouseleave", autoPlay);
 })();
 
 function DisplayLibraryCards(movieArray, displayContainerID) {
-	
+	movieArray.forEach(movie => {
+    let display = "<div class='col'><div class='card h-100'><img src='"+ movie.poster +"'class='card-img-top' alt='Poster'><div class='card-body d-flex flex-column'><h5 class='card-title'>"+movie.title+"</h5><p class='card-text mb-3'>"+movie.year+"</p><div class='mt-auto d-flex gap-2'><button class='btn btn-dark btn-sm'>Play ›<button>                      <button class='btn btn-outline-secondary btn-sm'>Add To My List ›</button></div></div></div></div>"
+    $(displayContainerID).append(display);
+  });
 }
 
 function DisplayHomePageCards(movieArray, displayContainerID) {
