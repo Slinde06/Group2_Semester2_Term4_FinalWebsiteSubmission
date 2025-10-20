@@ -262,12 +262,12 @@
 
 .individualHero {
   height: 978px;
-  background-color: #b13bff;
+  background-color: #090040;
 }
 
 .individualBack {
   height: 1500px;
-  background-color: #471396;
+  background-color: #090040;
 }
 
 .moreLikeThis {
@@ -507,7 +507,7 @@
 .librarybottom {
   min-height: 100vh;
   width: 100%;
-  background-color: #471396;
+  background-color: #090040;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

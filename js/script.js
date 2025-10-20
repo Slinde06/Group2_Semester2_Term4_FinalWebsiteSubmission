@@ -29,7 +29,7 @@ class Library {
     this.title = title;
     this.id = id;
     this.year = year;
-    this.image = image;
+    this.poster = image;
     this.genres = genres;
     this.rating = rating;
   }
@@ -64,13 +64,18 @@ class Featured {
       return result;
     })
     .catch((err) => console.error(err));
-  try {
-    genres.forEach((genre) => {
-      document.getElementById("genreFilter").innerHTML += `
-      <option id="${genre.id}">${genre.name}</option>
-      `;
+    console.log(genres.genres);
+    let genreList = genres.genres;
+
+    try {
+
+    genreList.forEach((genre) => {
+      let out ="<option id='"+genre.id+"'>"+genre.name+"</option>";
+     $("#genreDropdown").append(out);
     });
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 
   //get 3 featured movies for the hero slider as well as info needed for later JS coding
   let featured = await fetch(
@@ -104,7 +109,6 @@ class Featured {
     featuredMovies.push(
       (window["movie_" + i] = new Featured(title, id, backdrop, tagline))
     );
-    console.log(featuredMovies);
   }
   featuredMovies.forEach(DisplayFeaturedMovies);
 
@@ -175,7 +179,7 @@ class Featured {
     let title = library.results[i].title;
     let id = library.results[i].id;
     let image = "https://image.tmdb.org/t/p/w500"+library.results[i].poster_path;
-    let genres = library.results[i].title;
+    let genres = library.results[i].genre_ids;  
     let year = library.results[i].release_date.slice(0, 4);
     let rating = library.results[i].vote_average;
 
@@ -325,14 +329,20 @@ class Featured {
   }
 
   //Filtering for genres
-  function FilterGenre() {
-    let filter = document.getElementById("genreFilter");
+  try {
+    $("#genreDropdown").on('change', function() {
+ let filter = document.getElementById("genreDropdown");
     let selectedID = filter.options[filter.selectedIndex].id;
-    let filteredMovies = libraryMovies.filter((movie) => {
-      return movie.genres.contains(selectedID);
+    let filteredMovies = libraryMovies.filter((movie) => { 
+      return movie.genres.includes(parseInt(selectedID));
     });
-    DisplayLibraryMovies(filteredMovies);
+    console.log(filteredMovies)
+    DisplayFilterLibrary(filteredMovies,"#librarycards");
+    });
+  } catch (error) {
+    console.log(error);
   }
+
 
   //filtering for year
   function FilterYear() {
@@ -694,7 +704,16 @@ try {
 
 function DisplayLibraryCards(movieArray, displayContainerID) {
 	movieArray.forEach(movie => {
-    let display = "<div class='col'><div class='card h-100'><img src='"+ movie.poster +"'class='card-img-top' alt='Poster'><div class='card-body d-flex flex-column'><h5 class='card-title'>"+movie.title+"</h5><p class='card-text mb-3'>"+movie.year+"</p><div class='mt-auto d-flex gap-2'><button class='btn btn-dark btn-sm'>Play ›<button>                      <button class='btn btn-outline-secondary btn-sm'>Add To My List ›</button></div></div></div></div>"
+    let display = "<div class='col'><div class='card h-100'><img src='"+ movie.poster +"' class='card-img-top' alt='Poster'><div class='card-body d-flex flex-column'><h5 class='card-title'>"+movie.title+"</h5><p class='card-text mb-3'>"+movie.year+"</p><div class='mt-auto d-flex gap-2'><button class='btn btn-dark btn-sm'>Play ›</button><button class='btn btn-outline-secondary btn-sm'>Add To My List ›</button></div></div></div></div>"
+    $(displayContainerID).append(display);
+  });
+}
+
+function DisplayFilterLibrary(movieArray, displayContainerID) {
+  $(displayContainerID).html("");
+	movieArray.forEach(movie => {
+    let display = "<div class='col'><div class='card h-100'><img src='"+ movie.poster +"' class='card-img-top' alt='Poster'><div class='card-body d-flex flex-column'><h5 class='card-title'>"+movie.title+"</h5><p class='card-text mb-3'>"+movie.year+"</p><div class='mt-auto d-flex gap-2'><button class='btn btn-dark btn-sm'>Play ›</button><button class='btn btn-outline-secondary btn-sm'>Add To My List ›</button></div></div></div></div>"
+
     $(displayContainerID).append(display);
   });
 }
