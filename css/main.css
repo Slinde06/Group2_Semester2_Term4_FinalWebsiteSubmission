@@ -263,7 +263,15 @@
 .individualHero {
   height: 978px;
   background-color: #090040;
+  background: no-repeat;
+  background-size: cover;
 }
+
+.individualHeroContainer{
+  background-color: #00000089;
+  backdrop-filter: blur(5px);
+}
+
 
 .individualBack {
   height: 1500px;

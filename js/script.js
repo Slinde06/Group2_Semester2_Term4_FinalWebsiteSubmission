@@ -297,7 +297,7 @@ class Featured {
 
   let title = individual.title;
   let ID = individual.id;
-  let backdrop_path = individual.backdrop_path;
+  let backdrop_path = "https://image.tmdb.org/t/p/original"+individual.backdrop_path;
   let rating = individual.rating;
   let overview = individual.overview;
 
@@ -311,22 +311,32 @@ class Featured {
     })
     .catch((err) => console.error(err));
   let actors = [];
+let i=0;
+while (i <credits.cast.length && actors.length<=4) {
+   if (credits.cast[i].known_for_department=="Acting") {
+    let name=credits.cast[i].name;
+    let image="https://image.tmdb.org/t/p/original" +(credits.cast[i].profile_path);
+    actors.push(new actor(image,name));
+    console.log(actors);
+    
+   }
+   i++;
+}
 
-  for (let i = 0; i < 4; i++) {
-    if (credits.cast[i].known_for_department == "Acting") {
-      let name = credits.cast[i].name;
-      let image =
-        "https://image.tmdb.org/t/p/original" + credits.cast[i].profile_path;
-      actors.push(new actor(image, name));
+let directors=[];
+for (let i = 0; i < credits.cast.length; i++) {
+    if(credits.cast[i].known_for_department=="Directing") {
+        let name=credits.cast[i].name;
+        directors.push(name);
     }
   }
-  let directors = [];
-  for (let i = 0; i < credits.cast.length; i++) {
-    if (credits.cast[i].known_for_department == "Directing") {
-      let name = credits.cast[i].name;
-      directors.push(name);
-    }
-  }
+  $("#individualHero").css("background-image","url("+backdrop_path+")",);
+  $("#movieTitle").html(title);
+  let out="";
+  directors.forEach(director =>{out+=director+" "})
+  $("#director").html(out);
+  $("#Synopsis").html(overview);
+  actors.forEach(cast =>{ $("#circleContainer").append("<img src="+cast.image+">")})
 
   //Filtering for genres
   try {
