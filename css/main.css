@@ -110,7 +110,8 @@
   margin-top: 0;
   align-items: center;
   justify-content: center;
-  min-height: fit-content;
+
+  height: 50%;
 }
 
 .contain2 {
@@ -261,12 +262,12 @@
 
 .individualHero {
   height: 978px;
-  background-color: #b13bff;
+  background-color: #090040;
 }
 
 .individualBack {
   height: 1500px;
-  background-color: #471396;
+  background-color: #090040;
 }
 
 .moreLikeThis {
@@ -506,7 +507,7 @@
 .librarybottom {
   min-height: 100vh;
   width: 100%;
-  background-color: #471396;
+  background-color: #090040;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -962,8 +963,8 @@ Hero Slider - by CodyHouse.co
 
 
 .wrapper {
-  /* max-width: 1100px; */
-  width: 100%;
+ 
+  width: 95%;
   height: auto;
   position: relative;
 }
@@ -997,10 +998,11 @@ Hero Slider - by CodyHouse.co
   grid-auto-columns: calc((100% / 3) - 12px);
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  gap: 16px;
+  gap: 20px;
   border-radius: 8px;
   scroll-behavior: smooth;
   scrollbar-width: none;
+
 }
 .movieCarousel::-webkit-scrollbar {
   display: none;
@@ -1031,15 +1033,15 @@ Hero Slider - by CodyHouse.co
   border-radius: 8px;
 }
 .movieCarousel .MovieCard .img {
-  background: #8B53FF;
+  background: none;
   height: 100%;
   width: 100%;
 }
 .MovieCard .img img {
-  height: 100%;
+  height: auto;
   width: 100%;
   object-fit: cover;
-  border: 4px solid #fff;
+  /* border: 4px solid #fff; */
 }
 
 
@@ -1059,4 +1061,344 @@ Hero Slider - by CodyHouse.co
 .homePageContent{
  height: fit-content;
  background-color: #090040;
+ padding-bottom: 10%;
+}
+
+
+
+.signInBack {
+  /* Allow the panel to be at least full viewport height but grow if content is taller */
+  min-height: 100vh;
+  background-color: #471396;
+  width: 100%;
+}
+
+.welcomebackText1 {
+  color: #ffffff;
+  font-family: "Urbanist", sans-serif;
+  font-size: 48px;
+  padding-top: 30%;
+  padding-left: 3%;
+  text-align: center;
+}
+
+.welcomebackText2 {
+  color: #ffffff;
+  font-family: "Urbanist", sans-serif;
+  font-size: 18px;
+  text-align: center;
+}
+
+.buttonContainer1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.signUpButton1 {
+  background-color: #ffffff;
+  color: #471396;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 28px;
+  font-size: 1.05rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.signUpButton1:hover,
+.signUpButton1:focus {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+@media (max-width: 576px) {
+  .signUpButton1 {
+    width: 100%;
+    padding: 14px 20px;
+    font-size: 1rem;
+  }
+}
+
+.welcomeContainer1 {
+  width: 80%;
+  padding-left: 20%;
+  padding-top: 3%;
+}
+
+.signinForm {
+  width: 80%;
+  max-width: 360px;
+  margin: 18px auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputLabel {
+  color: #471396;
+  font-size: 0.95rem;
+  padding-top: 10%;
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+.formInput {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  outline: none;
+}
+
+.formInput:focus {
+  box-shadow: 0 2px 8px rgba(71, 19, 150, 0.12);
+  border-color: rgba(71, 19, 150, 0.2);
+}
+
+.signInButton {
+  background-color: #471396;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+}
+
+.signInButton:hover,
+.signInButton:focus {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.formActions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px; /* increased spacing above Sign In button */
+}
+
+.signInButton {
+  display: inline-block;
+}
+
+@media (max-width: 576px) {
+  .signInButton {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .signinForm {
+    width: 95%;
+    max-width: none;
+    margin: 12px auto 0 auto;
+  }
+}
+
+@media (max-width: 992px) {
+  .welcomebackText1 {
+    font-size: 40px;
+    padding-top: 16%;
+    padding-left: 6%;
+  }
+
+  .welcomebackText2 {
+    font-size: 16px;
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+
+  .buttonContainer1 {
+    padding-top: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  .welcomebackText1 {
+    font-size: 32px;
+    padding-top: 10%;
+    padding-left: 4%;
+  }
+
+  .welcomebackText2 {
+    font-size: 14px;
+    padding-left: 4%;
+    padding-right: 4%;
+  }
+
+  .buttonContainer1 {
+    padding-top: 12px;
+  }
+}
+
+/* Responsive tweaks for sign in / sign up pages */
+@media (max-width: 768px) {
+  .signInContainer,
+  #signUpContainer {
+    padding-top: 6%;
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+
+  .signInText {
+    padding-top: 6%;
+    font-size: 28px;
+  }
+
+  .welcomebackText1 {
+    padding-top: 8%;
+    font-size: 36px;
+  }
+
+  .signinForm,
+  #signUpContainer .signinForm {
+    width: 100%;
+    max-width: none;
+    margin: 0 auto;
+    padding-top: 12px;
+  }
+
+  .formInput,
+  .signInButton,
+  .signUpButton1 {
+    width: 100%;
+  }
+
+  .signInContainer {
+    padding-left: 4%;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Add bottom padding so forms don't touch the very bottom on small screens */
+  .signInBack,
+  .signInPage {
+    padding-bottom: 36px;
+  }
+
+  /* Slightly reduce top padding to keep vertical balance */
+  .signInContainer,
+  #signUpContainer {
+    padding-top: 8%;
+  }
+
+  /* Center welcome text and buttons for small screens */
+  .welcomebackText1,
+  .welcomebackText2,
+  .buttonContainer1 {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Reduce excessive padding on the large welcome heading */
+  #startText1,
+  .welcomebackText1 {
+    padding-top: 8%;
+  }
+
+  /* Center sign-in form heading and actions */
+  .signInText {
+    text-align: center;
+    padding-top: 6%;
+  }
+
+  .inputLabel {
+    text-align: center;
+  }
+
+  .formActions {
+    justify-content: center;
+    padding-top: 18px;
+  }
+}
+
+.signInText {
+  color: #471396;
+  font-family: "Urbanist", sans-serif;
+  font-size: 32px;
+  text-align: center;
+  padding-top: 10%;
+}
+
+.signInContainer {
+  padding-left: 10%;
+}
+
+.signInPage,
+.signInBack {
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.signInContainer {
+  width: auto;
+  padding-top: 12%;
+  padding-left: 18%;
+}
+
+.welcomeContainer1 {
+  width: 80%;
+  padding-left: 20%;
+  padding-top: 3%;
+}
+
+/* Center and align the Sign Up form fields when used on signUp.html */
+#signUpContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center the form horizontally */
+  justify-content: flex-start;
+  padding-left: 0; /* remove left padding for centering */
+}
+
+#signUpContainer .signinForm {
+  width: 90%;
+  max-width: 420px;
+  margin: 0; /* removed auto margins; container centers it */
+  padding-top: 6%;
+}
+
+#signUpContainer .inputLabel {
+  padding-top: 8px;
+}
+
+#signUpContainer .formInput {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#signUpContainer .formActions {
+  padding-top: 18px;
+}
+
+#startText1 {
+  /* fallback for very small screens will be handled in media queries */
+  padding-top: 8%;
+}
+
+/* Apply larger welcome heading padding on wider screens */
+@media (min-width: 992px) {
+  #startText1 {
+    padding-top: 40%;
+  }
+
+  /* Make labels left-aligned on wider screens */
+  #signUpContainer .inputLabel {
+    text-align: left; /* labels align left on desktop */
+  }
 }
