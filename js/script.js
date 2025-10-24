@@ -217,6 +217,7 @@ class Featured {
       recommendations.results[i].poster_path;
     recommended.push(new HomepageMovies(ID, poster));
   }
+DisplayHomePageCards(recommended,"#individualrecommended");
 
   //toppicks
 
