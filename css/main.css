@@ -32,12 +32,25 @@
   font-weight: 400;
   font-style: normal;
 }
+
+.primaryButton{
+  background-color: #221f1f;
+  color: #fff;
+  border: none;
+  padding: 2% 5%;
+  font-size: 1rem;
+  border-radius: 10px;
+}
+
 .header {
   height: 64px;
   width: auto;
-  background-color: #ffffff;
+  background-color: none;
 }
 .homeHero {
+  
+  padding: 0;
+  z-index: -1000;
   height: 100vh;
   width: auto;
   background-color: #b13bff;
@@ -47,14 +60,13 @@
 .homeBack {
   height: 200%;
   width: auto;
-  background-color: #090040;
 }
 
 .continueWatching {
   color: #ffffff;
   font-family: "Urbanist", sans-serif;
   font-size: 40px;
-  padding-top: 22%;
+  padding-top: 10%;
   padding-left: 13%;
   padding-bottom: 0;
 }
@@ -73,6 +85,19 @@
   font-size: 40px;
   padding-left: 13%;
   padding-top: 3%;
+}
+
+.welcomeMessage{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10%;
+}
+
+.welcomeText{
+  font-size: 3.5rem;
+  color: #fff;
+  text-align: center;
 }
 
 .continueMovies {
@@ -107,32 +132,10 @@
   padding:0 5%;
   padding-top: 3%;
   display: flex;
-  margin-top: 0;
+  margin: 0;
+  padding-bottom: 0;
   align-items: center;
   justify-content: center;
-
-  height: 50%;
-}
-
-.contain2 {
-  padding-left: 13%;
-  padding-top: 3%;
-}
-
-.contain3 {
-  padding-left: 13%;
-  padding-top: 3%;
-}
-
-.contain4 {
-  padding-left: 13%;
-  padding-top: 3%;
-  padding-bottom: 5%;
-}
-
-.contain5 {
-  padding-left: 13%;
-  padding-top: 3%;
 }
 
 .topPicks {
@@ -144,49 +147,63 @@
 }
 
 .footer {
-  padding: 0%;
-  height: 64px;
+  padding: 5% 0;
+  padding-bottom: 3%;
+  height: fit-content;
   width: 100%;
   background-color: #ffffff;
+  display: flex;
+  align-content: center;
 }
 
 .footerText {
   color: #471396;
   text-align: center;
-  padding-top: 5%;
-  padding-left: 13%;
-  display: flex;
+  margin-top: 0;
+  /* display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: center; */
 }
 
 .about {
-  padding-right: 10%;
+  margin-right: 10%;
 }
 
 .helpCenter {
-  padding-right: 10%;
+  margin-right: 10%;
 }
 
 .terms {
-  padding-right: 10%;
+  margin-right: 10%;
+}
+/* .privacy{
+    
 }
 
 .footerMedia {
   display: flex;
-  flex-direction: row-reverse;
-  padding-top: 3%;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+} */
+
+.socialsIcon {
+width: 100%;
+  height: auto;
 }
 
-.youtube {
-  height: 30%;
-}
-
-.youtubeContainer {
+.socialsContainer {
   width: 50px;
+  height: auto;
+  margin: 0 5%;
+  /* margin-bottom: 5%; */
+  padding-top: 0;
+  margin-top: 0;
 }
-
+/* 
 .twitter {
-  height: 30%;
+
 }
 
 .twitterContainer {
@@ -194,8 +211,8 @@
 }
 
 .instagram {
-  height: 30%;
-}
+
+} */
 
 .headerText {
   color: #471396;
@@ -240,31 +257,28 @@
 }
 
 @media (max-width: 576px) {
-  .footer {
+  /* .footer {
     height: auto;
-  }
+  } */
 
   .footerText {
-    flex-direction: column;
-    padding-left: 0;
-    gap: 8px;
-    align-items: center;
-    padding-top: 4%;
+    margin-bottom: 10%;
   }
 
-  .about,
+  /* .about,
   .helpCenter,
   .terms,
   .privacy {
     padding-right: 0;
-  }
+  } */
 }
 
 .individualHero {
   height: 978px;
-  background-color: #090040;
+  background: #090040;
+background: linear-gradient(0deg, rgba(9, 0, 64, 1) 34%, rgba(45, 33, 105, 1) 70%, rgba(71, 19, 150, 1) 100%);
   background: no-repeat;
-  background-size: cover;
+  background-size:cover;
 }
 
 .individualHeroContainer{
@@ -272,10 +286,10 @@
   backdrop-filter: blur(5px);
 }
 
-
 .individualBack {
   height: 1500px;
-  background-color: #090040;
+  background: #090040;
+background: linear-gradient(0deg, rgba(9, 0, 64, 1) 34%, rgba(45, 33, 105, 1) 70%, rgba(71, 19, 150, 1) 100%);
 }
 
 .moreLikeThis {
@@ -515,7 +529,8 @@
 .librarybottom {
   min-height: 100vh;
   width: 100%;
-  background-color: #090040;
+  background: #090040;
+background: linear-gradient(0deg, rgba(9, 0, 64, 1) 34%, rgba(45, 33, 105, 1) 70%, rgba(71, 19, 150, 1) 100%);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -550,13 +565,24 @@
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
-  justify-content: center;
+  width: 100%;
+
+}
+
+
+.table-responsive{
+  overflow: hidden;
+  scroll-behavior: none;
+  scrollbar-width: 0;
+  width: 100%;
+  padding: 1%;
 }
 
 .watchtop {
-  height: 978px;
+  /* height: 978px; */
+  padding-top: 1%;
   width: auto;
-  background-color: #b13bff;
+  background-color: #471396;
 }
 
 /* sliderCss */
@@ -728,13 +754,12 @@ Hero Slider - by CodyHouse.co
 
 .cd-hero__btn {
   display: inline-block;
-  width: 45%;
-  padding: 1.2em 1.4em;
+  width: 40%;
+  padding: 0.8em 1em;
   margin-top: .8em;
   background-color: #B13BFF;
   border-radius: 40px;
-  font-size: 1.3rem;
-  font-weight: 700;
+  font-size: 1rem;
   letter-spacing: 1px;
   color: #ffffff;
 
@@ -745,7 +770,7 @@ Hero Slider - by CodyHouse.co
 }
 
   .HeaderButtons{
-  display: flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -971,9 +996,7 @@ Hero Slider - by CodyHouse.co
 
 
 .wrapper {
- 
-  width: 95%;
-  height: auto;
+  width: auto;
   position: relative;
 }
 .wrapper i {
@@ -990,6 +1013,7 @@ Hero Slider - by CodyHouse.co
   box-shadow: 0 3px 6px rgba(0,0,0,0.23);
   transform: translateY(-50%);
   transition: transform 0.1s linear;
+  z-index: 3;
 }
 .wrapper i:active{
   transform: translateY(-50%) scale(0.85);
@@ -1003,15 +1027,15 @@ Hero Slider - by CodyHouse.co
 .wrapper .movieCarousel{
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: calc((100% / 3) - 12px);
+  grid-auto-columns: calc((100% / 4) - 20px);
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   gap: 20px;
   border-radius: 8px;
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; 
   scrollbar-width: none;
-
 }
+
 .movieCarousel::-webkit-scrollbar {
   display: none;
 }
@@ -1033,25 +1057,29 @@ Hero Slider - by CodyHouse.co
 }
 .movieCarousel .MovieCard {
   scroll-snap-align: start;
-  height: fit-content;
   list-style: none;
   background: #fff;
   cursor: pointer;
   flex-direction: column;
   border-radius: 8px;
+  height: 100%;
 }
 .movieCarousel .MovieCard .img {
   background: none;
-  height: 100%;
-  width: 100%;
+  height: max-content;
+  width: auto;
 }
 .MovieCard .img img {
-  height: auto;
-  width: 100%;
-  object-fit: cover;
-  /* border: 4px solid #fff; */
+  height:max-content;
+  width: auto;
+  overflow: hidden;
+  object-fit:cover;
 }
 
+.cardContainer{
+  position: relative;
+
+}
 
 @media screen and (max-width: 900px) {
   .wrapper .movieCarousel {
@@ -1068,7 +1096,8 @@ Hero Slider - by CodyHouse.co
 
 .homePageContent{
  height: fit-content;
- background-color: #090040;
+background: #090040;
+background: linear-gradient(0deg, rgba(9, 0, 64, 1) 34%, rgba(45, 33, 105, 1) 70%, rgba(71, 19, 150, 1) 100%);
  padding-bottom: 10%;
 }
 
@@ -1409,4 +1438,105 @@ Hero Slider - by CodyHouse.co
   #signUpContainer .inputLabel {
     text-align: left; /* labels align left on desktop */
   }
+}
+
+.imageOverlay{
+  position: absolute;
+  bottom: 0;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5); 
+  color: #f1f1f1;
+  width: 100%;
+  transition: .5s ease;
+  opacity:0;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.cardContainer:hover .imageOverlay {
+  opacity: 1;
+}
+
+nav{
+
+}
+
+.navbar{
+  padding: 10px;
+ position: absolute;
+ width: 100%;
+ top: 0;
+ background: transparent;
+   z-index: 1000;
+ background: #040026;
+background: linear-gradient(180deg, rgba(4, 0, 38, 1) 0%, rgba(45, 33, 105, 0) 100%);
+height: fit-content;
+}
+
+.logoMain{
+  width: 28%;
+}
+
+.navbar-toggler-icon{
+  background-image: url(../assets/images/Hamburger.png);
+  border-color: #b13bff;
+}
+
+.nav-link{
+  color: #fff;
+  font-size: 20px;
+}
+
+.activeLink{
+  color: #b13bff;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.nav-link:hover {
+  color: #cd81ff;
+}
+
+.watchListTop{
+  background-image: url(../assets/images/placeholderbackgroundimg.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 40vh;
+  
+}
+
+.watchListHeroContainer{
+  
+  color:#fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background-color: #00000089;
+  backdrop-filter: blur(5px);
+
+  h2{
+    font-size: 3.5em;
+  }
+}
+
+.form-select{
+  background-color: #00000083;
+  color: #fff;
+  border-color: transparent;
+      background-image: url("../assets/images/arrow.png");
+      background-size: 20px auto;
+      background-position-y:4px;
+    color: #ffffff;
+  option{
+    background-color: #090040;
+  }
+}
+.card{
+ background-color: #00000083;
+ color: #fff;
+  box-shadow: 10px 10px 14px rgba(0, 0, 0, 0.5);
 }
