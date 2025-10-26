@@ -263,6 +263,7 @@ $("#loadbuttonlibrary").click(function () {
       recommendations.results[i].poster_path;
     recommended.push(new HomepageMovies(title,ID, poster));
   }
+DisplayHomePageCards(recommended,"#individualrecommended");
 
   //top picks API call
 
