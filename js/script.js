@@ -113,7 +113,7 @@ class Featured {
     );
   }
   featuredMovies.forEach(DisplayFeaturedMovies);
-  
+  // addListeners(featuredMovies.ID);
   //call for popular movies
 
   // let data = await fetch(
@@ -324,9 +324,13 @@ DisplayHomePageCards(recommended,"#individualrecommended");
 
 
   //Individual movie pages
+var individualID
+
+ individualID = localStorage.getItem("individualID");
+console.log(individualID);
 
   let individual = await fetch(
-    "https://api.themoviedb.org/3/movie/" + 12 + "?language=en-US",
+    "https://api.themoviedb.org/3/movie/" + individualID + "?language=en-US",
     options
   )
     .then((response) => response.json())
@@ -342,7 +346,7 @@ DisplayHomePageCards(recommended,"#individualrecommended");
   let overview = individual.overview;
 
   let credits = await fetch(
-    "https://api.themoviedb.org/3/movie/12/credits?language=en-US",
+    "https://api.themoviedb.org/3/movie/"+individualID+"/credits?language=en-US",
     options
   )
     .then((response) => response.json())
@@ -765,37 +769,22 @@ try {
   }
 })();
 
-})();
-
-
-//Display Functions
-function DisplayLibraryCards(movieArray, displayContainerID) {
-	movieArray.forEach(movie => {
-    let display = "<div class='col'><div class='card h-100'><img src='"+ movie.poster +"' class='card-img-top' alt='Poster'><div class='card-body d-flex flex-column'><h5 class='card-title'>"+movie.title+"</h5><p class='card-text mb-3'>"+movie.year+"</p><div class='mt-auto d-flex gap-2'><button class='btn btn-dark btn-sm'>Play ›</button><button class='btn btn-outline-secondary btn-sm'>Add To My List ›</button></div></div></div></div>"
-    $(displayContainerID).append(display);
-  });
-}
-
-function DisplayFilterLibrary(movieArray, displayContainerID) {
-  $(displayContainerID).html("");
-	movieArray.forEach(movie => {
-    let display = "<div class='col'><div class='card h-100'><img src='"+ movie.poster +"' class='card-img-top' alt='Poster'><div class='card-body d-flex flex-column'><h5 class='card-title'>"+movie.title+"</h5><p class='card-text mb-3'>"+movie.year+"</p><div class='mt-auto d-flex gap-2'><button class='btn btn-dark btn-sm'>Play ›</button><button class='btn btn-outline-secondary btn-sm'>Add To My List ›</button></div></div></div></div>"
-
-    $(displayContainerID).append(display);
-  });
-}
-
-function DisplayHomePageCards(movieArray, displayContainerID) {
-movieArray.forEach(movie => {
-		let display = "<div class='cardContainer'><li class='MovieCard' onclick='populateMoviePage()'><div class='img'><img src='"+ movie.poster+"' alt='img' draggable='false'></div></li><div class='imageOverlay'>"+movie.title+"</div></div>";
-		$(displayContainerID).append(display);
-});
-}
 
 function DisplayFeaturedMovies(movie, index) {
   let featuredMovieBGID = "FeaturedMovieBackground" + index;
   let featuredMovietitle = "FeaturedMovieTitle" + index;
   let featuredMovieTagline = "FeaturedMovieDesc" + index;
+  let featuredMovieView = "FeaturedMovieView" + index;
+  let featuredMovieAdd = "FeaturedMovieAdd" + index;
+  
+  $("#" + featuredMovieView).click( (e) =>{
+    e.preventDefault;
+    PopulateMoviePage(movie.id);
+  })
+  $("#" + featuredMovieAdd).click( (e) =>{
+    e.preventDefault;
+    AddToList(movie.id);
+  });
 
   $("#" + featuredMovieBGID).css(
     "background-image",
@@ -803,4 +792,47 @@ function DisplayFeaturedMovies(movie, index) {
   );
   $("#" + featuredMovietitle).text(movie.title);
   $("#" + featuredMovieTagline).text(movie.tagline);
+}
+
+
+})();//async end
+
+//Display Functions
+function DisplayLibraryCards(movieArray, displayContainerID) {
+  movieArray.forEach(movie => {
+let display = "<div class='col'><div class='card h-100'><img src='"+ movie.poster +"' class='card-img-top' alt='Poster'><div class='card-body d-flex flex-column'><h5 class='card-title'>"+movie.title+"</h5><p class='card-text mb-3'>"+movie.year+"</p><div class='mt-auto d-flex gap-2'><button class='btn btn-dark btn-sm' onclick='PopulateMoviePage("+movie.id+")'>Play ›</button><button class='btn btn-outline-secondary btn-sm'>Add To My List ›</button></div></div></div></div>"
+
+    $(displayContainerID).append(display);
+  });
+}
+
+function DisplayFilterLibrary(movieArray, displayContainerID) {
+  $(displayContainerID).html("");
+  movieArray.forEach(movie => {
+    let display = "<div class='col'><div class='card h-100'><img src='"+ movie.poster +"' class='card-img-top' alt='Poster'><div class='card-body d-flex flex-column'><h5 class='card-title'>"+movie.title+"</h5><p class='card-text mb-3'>"+movie.year+"</p><div class='mt-auto d-flex gap-2'><button class='btn btn-dark btn-sm' onclick='PopulateMoviePage("+movie.id+")'>Play ›</button><button class='btn btn-outline-secondary btn-sm'>Add To My List ›</button></div></div></div></div>"
+
+    $(displayContainerID).append(display);
+  });
+}
+
+function DisplayHomePageCards(movieArray, displayContainerID) {
+movieArray.forEach(movie => {
+    let display = "<div class='cardContainer'><li class='MovieCard' onclick='PopulateMoviePage("+movie.ID+")'><div class='img'><img src='"+ movie.poster+"' alt='img' draggable='false'></div></li><div class='imageOverlay'>"+movie.title +" " +movie.ID+"</div></div>";
+    $(displayContainerID).append(display);
+});
+}
+
+function PopulateMoviePage(movieId) {
+  localStorage.setItem("individualID",movieId);
+
+  console.log(localStorage.getItem('individualID'));
+  window.location.href="../pages/individual.html"
+}
+
+function AddToList(movieId) {
+  let watchList = JSON.parse(localStorage.getItem("watchList") || []);
+  watchList.push(movieId);
+  localStorage.setItem("watchList",JSON.stringify(watchList));
+  console.log("added"+ movieId+ "to list");
+  
 }

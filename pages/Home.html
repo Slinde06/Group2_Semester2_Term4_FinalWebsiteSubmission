@@ -73,8 +73,8 @@
 					<h2 id="FeaturedMovieTitle0">Movie title</h2>
 					<p id="FeaturedMovieDesc0">Movie one liner here</p>
 				<div class="HeaderButtons">
-          <a href="" onclick="populateMoviePage()" class="cd-hero__btn">View Movie</a>
-					<a onclick="addToList()" class="cd-hero__btn cd-hero__btn--secondary">Add to list</a>
+          <a id="FeaturedMovieView0" class="cd-hero__btn">View Movie</a>
+					<a id="FeaturedMovieAdd0" class="cd-hero__btn cd-hero__btn--secondary">Add to list</a>
         </div>
 				</div> <!-- .cd-hero__content -->
 			</li> 
@@ -84,8 +84,8 @@
 					<h2 id="FeaturedMovieTitle1">Movie title</h2>
 					<p id="FeaturedMovieDesc1">Movie one liner here</p>
           <div class="HeaderButtons">
-          <a href="" onclick="populateMoviePage()" class="cd-hero__btn">View Movie</a>
-					<a onclick="addToList()" class="cd-hero__btn cd-hero__btn--secondary">Add to list</a>
+          <a id="FeaturedMovieView1" class="cd-hero__btn">View Movie</a>
+					<a id="FeaturedMovieAdd1" class="cd-hero__btn cd-hero__btn--secondary">Add to list</a>
         </div>
 				</div> <!-- .cd-hero__content -->
 			</li>
@@ -95,8 +95,8 @@
 					<h2 id="FeaturedMovieTitle2">Movie title</h2>
 					<p id="FeaturedMovieDesc2">Movie one liner here</p>
           <div class="HeaderButtons">
-          <a href="" onclick="populateMoviePage()" class="cd-hero__btn">View Movie</a>
-					<a onclick="addToList()" class="cd-hero__btn cd-hero__btn--secondary">Add to list</a>
+          <a id="FeaturedMovieView2" class="cd-hero__btn">View Movie</a>
+					<a id="FeaturedMovieAdd2" class="cd-hero__btn cd-hero__btn--secondary">Add to list</a>
         </div>
 				</div> <!-- .cd-hero__content -->
 			</li>
@@ -178,36 +178,36 @@
 
     <div class="footer">
       <div class="container-fluid">
-        <div class="row">
-          <div class="col-6">
-            <div class="footerText" id="footerText">
+        <div class="row d-flex align-items-center">
+          <div class="col-lg-6" >
+            <div class="footerText d-lg-flex justify-content-center d-flex align-items-center justify-content-center " id="footerText">
               <div class="about" id="about">About</div>
               <div class="helpCenter" id="helpCenter">Help Center</div>
               <div class="terms" id="terms">Terms</div>
               <div class="privacy" id="privacy">Privacy</div>
             </div>
           </div>
-          <div class="col-6" >
-            <div class="footerMedia" id="footerMedia">
-              <div class="instagramContainer" id="instagramContainer">
+          <div class="col-lg-6" >
+            <div class="footerMedia d-lg-flex justify-content-end d-flex align-items-center justify-content-center " id="footerMedia">
+              <div class="socialsContainer" id="instagramContainer">
                 <img
-                  class="instagram"
+                  class="socialsIcon"
                   id="instagram"
                   src="../assets/images/instagram.png"
                   alt="instagram logo"
                 />
               </div>
-              <div class="twitterContainer" id="twitterContainer">
+              <div class="socialsContainer" id="twitterContainer">
                 <img
-                  class="twitter"
+                  class="socialsIcon"
                   id="twitter"
                   src="../assets/images/twitter.png"
                   alt="twitter logo"
                 />
               </div>
-              <div class="youtubeContainer" id="youtubeContainer">
+              <div class="socialsContainer" id="youtubeContainer">
                 <img
-                  class="youtube"
+                  class="socialsIcon"
                   id="youtube"
                   src="../assets/images/youtube.png"
                   alt="youtube logo"
