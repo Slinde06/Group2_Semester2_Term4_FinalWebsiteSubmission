@@ -117,7 +117,7 @@ class Featured {
 
 //watchList
 
-// let watchList = JSON.parse(localStorage.getItem('watchList'));
+let watchList = JSON.parse(localStorage.getItem('watchList'));
 
 // watchList.forEach(id => {
 //   let library = await fetch(
