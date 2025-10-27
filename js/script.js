@@ -113,54 +113,24 @@ class Featured {
     );
   }
   featuredMovies.forEach(DisplayFeaturedMovies);
-  // addListeners(featuredMovies.ID);
-  //call for popular movies
 
-  // let data = await fetch(
-  //   "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
-  //   options
-  // )
-  //   .then((response) => response.json())
-  //   .then((result) => {
-  //     return result;
-  //   })
-  //   .catch((err) => console.error(err));
 
-  // //Temp watchlist code
-  // let tempWatchList = [];
+//watchList
 
-  // for (let i = 0; i < data.results.length; i++) {
-  //   let id = data.results[i].id;
-  //   let details = await fetch(
-  //     "https://api.themoviedb.org/3/movie/" + id + "?language=en-US&page=1",
-  //     options
-  //   )
-  //     .then((response) => response.json())
-  //     .then((result) => {
-  //       return result;
-  //     })
-  //     .catch((err) => console.error(err));
+let watchList = JSON.parse(localStorage.getItem('watchList'));
 
-  //   let title = data.results[i].title;
-  //   let image = "https://image.tmdb.org/t/p/w500" + data.results[i].poster_path;
-  //   let year = data.results[i].release_date.slice(0, 4);
-  //   let genres = details.genres;
-  //   let language = data.results[i].original_language;
-  //   let rating = data.results[i].vote_average;
-
-  //   tempWatchList.push(
-  //     (window["movie_" + i] = new WatchList(
-  //       id,
-  //       title,
-  //       year,
-  //       image,
-  //       genres,
-  //       language,
-  //       rating
-  //     ))
-  //   );
-  // }
-  // DisplayHomePageCards(tempWatchList,"#continueWatchingContainer");
+watchList.forEach(id => {
+  let library = await fetch(
+  "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
+  options
+)
+.then((response) => response.json())
+.then((result) => {
+  return result;
+})
+.catch((err) => console.error(err));
+  
+});
 
 //Library page and popular movies API calls 
 let library = await fetch(
@@ -783,6 +753,8 @@ function DisplayFeaturedMovies(movie, index) {
   })
   $("#" + featuredMovieAdd).click( (e) =>{
     e.preventDefault;
+    console.log(movie.id);
+    
     AddToList(movie.id);
   });
 
@@ -800,7 +772,7 @@ function DisplayFeaturedMovies(movie, index) {
 //Display Functions
 function DisplayLibraryCards(movieArray, displayContainerID) {
   movieArray.forEach(movie => {
-let display = "<div class='col'><div class='card h-100'><img src='"+ movie.poster +"' class='card-img-top' alt='Poster'><div class='card-body d-flex flex-column'><h5 class='card-title'>"+movie.title+"</h5><p class='card-text mb-3'>"+movie.year+"</p><div class='mt-auto d-flex gap-2'><button class='btn btn-dark btn-sm' onclick='PopulateMoviePage("+movie.id+")'>Play ›</button><button class='btn btn-outline-secondary btn-sm'>Add To My List ›</button></div></div></div></div>"
+let display = "<div class='col'><div class='card h-100'><img src='"+ movie.poster +"' class='card-img-top' alt='Poster'><div class='card-body d-flex flex-column'><h5 class='card-title'>"+movie.title+"</h5><p class='card-text mb-3'>"+movie.year+"</p><div class='mt-auto d-flex gap-2'><button class='btn btn-dark btn-sm' onclick='PopulateMoviePage("+movie.id+")'>Play ›</button><button data-id='"+movie.id+"' class='btn btn-outline-secondary btn-sm'>Add To My List ›</button></div></div></div></div>"
 
     $(displayContainerID).append(display);
   });
@@ -809,7 +781,7 @@ let display = "<div class='col'><div class='card h-100'><img src='"+ movie.poste
 function DisplayFilterLibrary(movieArray, displayContainerID) {
   $(displayContainerID).html("");
   movieArray.forEach(movie => {
-    let display = "<div class='col'><div class='card h-100'><img src='"+ movie.poster +"' class='card-img-top' alt='Poster'><div class='card-body d-flex flex-column'><h5 class='card-title'>"+movie.title+"</h5><p class='card-text mb-3'>"+movie.year+"</p><div class='mt-auto d-flex gap-2'><button class='btn btn-dark btn-sm' onclick='PopulateMoviePage("+movie.id+")'>Play ›</button><button class='btn btn-outline-secondary btn-sm'>Add To My List ›</button></div></div></div></div>"
+    let display = "<div class='col'><div class='card h-100'><img src='"+ movie.poster +"' class='card-img-top' alt='Poster'><div class='card-body d-flex flex-column'><h5 class='card-title'>"+movie.title+"</h5><p class='card-text mb-3'>"+movie.year+"</p><div class='mt-auto d-flex gap-2'><button class='btn btn-dark btn-sm' onclick='PopulateMoviePage("+movie.id+")'>Play ›</button><button data-id='"+movie.id+"' class='btn btn-outline-secondary btn-sm'>Add To My List ›</button></div></div></div></div>"
 
     $(displayContainerID).append(display);
   });
@@ -817,22 +789,28 @@ function DisplayFilterLibrary(movieArray, displayContainerID) {
 
 function DisplayHomePageCards(movieArray, displayContainerID) {
 movieArray.forEach(movie => {
-    let display = "<div class='cardContainer'><li class='MovieCard' onclick='PopulateMoviePage("+movie.ID+")'><div class='img'><img src='"+ movie.poster+"' alt='img' draggable='false'></div></li><div class='imageOverlay'>"+movie.title +" " +movie.ID+"</div></div>";
+    let display = "<div class='cardContainer'><li class='MovieCard' onclick='PopulateMoviePage("+movie.ID+")'><div class='img'><img src='"+ movie.poster+"' alt='img' draggable='false'></div></li><div class='imageOverlay'>"+movie.title+"</div></div>";
     $(displayContainerID).append(display);
 });
 }
 
 function PopulateMoviePage(movieId) {
   localStorage.setItem("individualID",movieId);
-
-  console.log(localStorage.getItem('individualID'));
   window.location.href="../pages/individual.html"
 }
 
 function AddToList(movieId) {
-  let watchList = JSON.parse(localStorage.getItem("watchList") || []);
+  let watchList = [];
+  try {
+    watchList = JSON.parse(localStorage.getItem('watchList'));
+    if (watchList == null) {
+      watchList = [];
+    }
+  } catch (error) {
+    console.log(error);
+  }
+  
   watchList.push(movieId);
   localStorage.setItem("watchList",JSON.stringify(watchList));
-  console.log("added"+ movieId+ "to list");
   
 }
