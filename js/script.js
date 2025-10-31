@@ -113,53 +113,23 @@ class Featured {
   }
   featuredMovies.forEach(DisplayFeaturedMovies);
 
-  //call for popular movies
 
-  // let data = await fetch(
-  //   "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
-  //   options
-  // )
-  //   .then((response) => response.json())
-  //   .then((result) => {
-  //     return result;
-  //   })
-  //   .catch((err) => console.error(err));
+//watchList
 
-  // //Temp watchlist code
-  // let tempWatchList = [];
+// let watchList = JSON.parse(localStorage.getItem('watchList'));
 
-  // for (let i = 0; i < data.results.length; i++) {
-  //   let id = data.results[i].id;
-  //   let details = await fetch(
-  //     "https://api.themoviedb.org/3/movie/" + id + "?language=en-US&page=1",
-  //     options
-  //   )
-  //     .then((response) => response.json())
-  //     .then((result) => {
-  //       return result;
-  //     })
-  //     .catch((err) => console.error(err));
-
-  //   let title = data.results[i].title;
-  //   let image = "https://image.tmdb.org/t/p/w500" + data.results[i].poster_path;
-  //   let year = data.results[i].release_date.slice(0, 4);
-  //   let genres = details.genres;
-  //   let language = data.results[i].original_language;
-  //   let rating = data.results[i].vote_average;
-
-  //   tempWatchList.push(
-  //     (window["movie_" + i] = new WatchList(
-  //       id,
-  //       title,
-  //       year,
-  //       image,
-  //       genres,
-  //       language,
-  //       rating
-  //     ))
-  //   );
-  // }
-  // DisplayHomePageCards(tempWatchList,"#continueWatchingContainer");
+// watchList.forEach(id => {
+//   let library = await fetch(
+//   "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
+//   options
+// )
+// .then((response) => response.json())
+// .then((result) => {
+//   return result;
+// })
+// .catch((err) => console.error(err));
+  
+// });
 
   //Library page and popular movies API calls
   let library = await fetch(
@@ -320,9 +290,13 @@ class Featured {
   DisplayHomePageCards(genre, "#genreContainer");
 
   //Individual movie pages
+var individualID
+
+ individualID = localStorage.getItem("individualID");
+console.log(individualID);
 
   let individual = await fetch(
-    "https://api.themoviedb.org/3/movie/" + 12 + "?language=en-US",
+    "https://api.themoviedb.org/3/movie/" + individualID + "?language=en-US",
     options
   )
     .then((response) => response.json())
@@ -339,7 +313,7 @@ class Featured {
   let overview = individual.overview;
 
   let credits = await fetch(
-    "https://api.themoviedb.org/3/movie/12/credits?language=en-US",
+    "https://api.themoviedb.org/3/movie/"+individualID+"/credits?language=en-US",
     options
   )
     .then((response) => response.json())
@@ -741,92 +715,107 @@ class Featured {
       el.className = classes.join(" ");
     }
 
-    //class manipulations - needed if classList is not supported
-    function hasClass(el, className) {
-      if (el.classList) return el.classList.contains(className);
-      else
-        return !!el.className.match(
-          new RegExp("(\\s|^)" + className + "(\\s|$)")
-        );
+  //class manipulations - needed if classList is not supported
+  function hasClass(el, className) {
+    if (el.classList) return el.classList.contains(className);
+    else
+      return !!el.className.match(
+        new RegExp("(\\s|^)" + className + "(\\s|$)")
+      );
+  }
+  function addClass(el, className) {
+    var classList = className.split(" ");
+    if (el.classList) el.classList.add(classList[0]);
+    else if (!hasClass(el, classList[0])) el.className += " " + classList[0];
+    if (classList.length > 1) addClass(el, classList.slice(1).join(" "));
+  }
+  function removeClass(el, className) {
+    var classList = className.split(" ");
+    if (el.classList) el.classList.remove(classList[0]);
+    else if (hasClass(el, classList[0])) {
+      var reg = new RegExp("(\\s|^)" + classList[0] + "(\\s|$)");
+      el.className = el.className.replace(reg, " ");
     }
-    function addClass(el, className) {
-      var classList = className.split(" ");
-      if (el.classList) el.classList.add(classList[0]);
-      else if (!hasClass(el, classList[0])) el.className += " " + classList[0];
-      if (classList.length > 1) addClass(el, classList.slice(1).join(" "));
-    }
-    function removeClass(el, className) {
-      var classList = className.split(" ");
-      if (el.classList) el.classList.remove(classList[0]);
-      else if (hasClass(el, classList[0])) {
-        var reg = new RegExp("(\\s|^)" + classList[0] + "(\\s|$)");
-        el.className = el.className.replace(reg, " ");
-      }
-      if (classList.length > 1) removeClass(el, classList.slice(1).join(" "));
-    }
-    function toggleClass(el, className, bool) {
-      if (bool) addClass(el, className);
-      else removeClass(el, className);
-    }
-  })();
+    if (classList.length > 1) removeClass(el, classList.slice(1).join(" "));
+  }
+  function toggleClass(el, className, bool) {
+    if (bool) addClass(el, className);
+    else removeClass(el, className);
+  }
 })();
+
+
+function DisplayFeaturedMovies(movie, index) {
+  let featuredMovieBGID = "FeaturedMovieBackground" + index;
+  let featuredMovietitle = "FeaturedMovieTitle" + index;
+  let featuredMovieTagline = "FeaturedMovieDesc" + index;
+  let featuredMovieView = "FeaturedMovieView" + index;
+  let featuredMovieAdd = "FeaturedMovieAdd" + index;
+  
+  $("#" + featuredMovieView).click( (e) =>{
+    e.preventDefault;
+    PopulateMoviePage(movie.id);
+  })
+  $("#" + featuredMovieAdd).click( (e) =>{
+    e.preventDefault;
+    console.log(movie.id);
+    
+    AddToList(movie.id);
+  });
+
+  $("#" + featuredMovieBGID).css(
+    "background-image",
+    "url(" + movie.backdrop + ")", "background", "no-repeat","background-size", "cover"
+  );
+  $("#" + featuredMovietitle).text(movie.title);
+  $("#" + featuredMovieTagline).text(movie.tagline);
+}
+
+
+})();//async end
 
 //Display Functions
 function DisplayLibraryCards(movieArray, displayContainerID) {
-  movieArray.forEach((movie) => {
-    let display =
-      "<div class='col'><div class='card h-100'><img src='" +
-      movie.poster +
-      "' class='card-img-top' alt='Poster'><div class='card-body d-flex flex-column'><h5 class='card-title'>" +
-      movie.title +
-      "</h5><p class='card-text mb-3'>" +
-      movie.year +
-      "</p><div class='mt-auto d-flex gap-2'><button class='btn btn-dark btn-sm'>Play ›</button><button class='btn btn-outline-secondary btn-sm'>Add To My List ›</button></div></div></div></div>";
+  movieArray.forEach(movie => {
+let display = "<div class='col'><div class='card h-100'><img src='"+ movie.poster +"' class='card-img-top' alt='Poster'><div class='card-body d-flex flex-column'><h5 class='card-title'>"+movie.title+"</h5><p class='card-text mb-3'>"+movie.year+"</p><div class='mt-auto d-flex gap-2'><button class='btn btn-dark btn-sm' onclick='PopulateMoviePage("+movie.id+")'>Play ›</button><button data-id='"+movie.id+"' class='btn btn-outline-secondary btn-sm'>Add To My List ›</button></div></div></div></div>"
+
     $(displayContainerID).append(display);
   });
 }
 
 function DisplayFilterLibrary(movieArray, displayContainerID) {
   $(displayContainerID).html("");
-  movieArray.forEach((movie) => {
-    let display =
-      "<div class='col'><div class='card h-100'><img src='" +
-      movie.poster +
-      "' class='card-img-top' alt='Poster'><div class='card-body d-flex flex-column'><h5 class='card-title'>" +
-      movie.title +
-      "</h5><p class='card-text mb-3'>" +
-      movie.year +
-      "</p><div class='mt-auto d-flex gap-2'><button class='btn btn-dark btn-sm'>Play ›</button><button class='btn btn-outline-secondary btn-sm'>Add To My List ›</button></div></div></div></div>";
+  movieArray.forEach(movie => {
+    let display = "<div class='col'><div class='card h-100'><img src='"+ movie.poster +"' class='card-img-top' alt='Poster'><div class='card-body d-flex flex-column'><h5 class='card-title'>"+movie.title+"</h5><p class='card-text mb-3'>"+movie.year+"</p><div class='mt-auto d-flex gap-2'><button class='btn btn-dark btn-sm' onclick='PopulateMoviePage("+movie.id+")'>Play ›</button><button data-id='"+movie.id+"' class='btn btn-outline-secondary btn-sm'>Add To My List ›</button></div></div></div></div>"
 
     $(displayContainerID).append(display);
   });
 }
 
 function DisplayHomePageCards(movieArray, displayContainerID) {
-  movieArray.forEach((movie) => {
-    let display =
-      "<div class='cardContainer'><li class='MovieCard' onclick='populateMoviePage()'><div class='img'><img src='" +
-      movie.poster +
-      "' alt='img' draggable='false'></div></li><div class='imageOverlay'>" +
-      movie.title +
-      "</div></div>";
+movieArray.forEach(movie => {
+    let display = "<div class='cardContainer'><li class='MovieCard' onclick='PopulateMoviePage("+movie.ID+")'><div class='img'><img src='"+ movie.poster+"' alt='img' draggable='false'></div></li><div class='imageOverlay'>"+movie.title+"</div></div>";
     $(displayContainerID).append(display);
-  });
+});
 }
 
-function DisplayFeaturedMovies(movie, index) {
-  let featuredMovieBGID = "FeaturedMovieBackground" + index;
-  let featuredMovietitle = "FeaturedMovieTitle" + index;
-  let featuredMovieTagline = "FeaturedMovieDesc" + index;
+function PopulateMoviePage(movieId) {
+  localStorage.setItem("individualID",movieId);
+  window.location.href="../pages/individual.html"
+}
 
-  $("#" + featuredMovieBGID).css(
-    "background-image",
-    "url(" + movie.backdrop + ")",
-    "background",
-    "no-repeat",
-    "background-size",
-    "cover"
-  );
-  $("#" + featuredMovietitle).text(movie.title);
-  $("#" + featuredMovieTagline).text(movie.tagline);
+function AddToList(movieId) {
+  let watchList = [];
+  try {
+    watchList = JSON.parse(localStorage.getItem('watchList'));
+    if (watchList == null) {
+      watchList = [];
+    }
+  } catch (error) {
+    console.log(error);
+  }
+  
+  watchList.push(movieId);
+  localStorage.setItem("watchList",JSON.stringify(watchList));
+  
 }

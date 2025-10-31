@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE-edge" />
+    <meta name="viewport" content="width-device-width, initial-scale-1.0" />
+    <meta name="author" content="Eunice van Zyl 251023" />
+    <meta name="keywords" content="" />
+    <!--keywords based on website content for SEO-->
+
+    <title>Library</title>
+    <!--Title on webpage tab-->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Barriecito&family=Boldonse&family=Cal+Sans&family=Chewy&family=Poller+One&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/main.css" />
+  </head>
+  <body>
+
+<nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="Home.html">
+          <img
+            class="logoMain"
+            id="logoMain"
+            src="../assets/images/lookLogos.png"
+            alt="Look Logo"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div
+          class="d-lg-flex flex-row justify-content-end collapse navbar-collapse"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav">
+           <li class="nav-item pe-2 ps-2">
+              <a class="nav-link  " aria-current="page" href="Home.html">Home</a>
+            </li>
+            <li class="nav-item pe-2 ps-2">
+              <a class="nav-link activeLink" href="library.html">Movies</a>
+            </li>
+            <li class="nav-item pe-2 ps-2">
+              <a class="nav-link" href="watchList.html">My List</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div id="librarytop" class="librarytop">
+<section class="homeHero">
+      <div class="cd-hero js-cd-hero js-cd-autoplay">
+		  <ul id="FeaturedSlider" class="cd-hero__slider">
+			<li id="FeaturedMovieBackground0" class="cd-hero__slide js-cd-slide cd-hero__slide--selected">
+				<div class="cd-hero__content cd-hero__content--half-width">
+					<h2 id="FeaturedMovieTitle0">Movie title</h2>
+					<p id="FeaturedMovieDesc0">Movie one liner here</p>
+				<div class="HeaderButtons">
+          <a id="FeaturedMovieView0" class="cd-hero__btn">View Movie</a>
+					<a id="FeaturedMovieAdd0" class="cd-hero__btn cd-hero__btn--secondary">Add to list</a>
+        </div>
+				</div> <!-- .cd-hero__content -->
+			</li> 
+
+      <li  id="FeaturedMovieBackground1" class="cd-hero__slide js-cd-slide">
+				<div  class="cd-hero__content cd-hero__content--half-width">
+					<h2 id="FeaturedMovieTitle1">Movie title</h2>
+					<p id="FeaturedMovieDesc1">Movie one liner here</p>
+          <div class="HeaderButtons">
+          <a id="FeaturedMovieView1" class="cd-hero__btn">View Movie</a>
+					<a id="FeaturedMovieAdd1" class="cd-hero__btn cd-hero__btn--secondary">Add to list</a>
+        </div>
+				</div> <!-- .cd-hero__content -->
+			</li>
+
+      <li id="FeaturedMovieBackground2" class="cd-hero__slide js-cd-slide">
+				<div  class="cd-hero__content cd-hero__content--half-width">
+					<h2 id="FeaturedMovieTitle2">Movie title</h2>
+					<p id="FeaturedMovieDesc2">Movie one liner here</p>
+          <div class="HeaderButtons">
+          <a id="FeaturedMovieView2" class="cd-hero__btn">View Movie</a>
+					<a id="FeaturedMovieAdd2" class="cd-hero__btn cd-hero__btn--secondary">Add to list</a>
+        </div>
+				</div> <!-- .cd-hero__content -->
+			</li>
+		</ul> <!-- .cd-hero__slider -->
+    <!-- slider navigation buttons -->
+  <button class="carousel-control-prev " type="button">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+      </div>
+    </section>
+   </div>
+
+    <div id="librarybottom" class="librarybottom">
+      <div class="container py-4">
+        <form class="row g-3 justify-content-center mb-4">
+          <div class="col-md-2">
+            <label class="form-label visually-hidden">Genre</label>
+            <select  id="genreDropdown" class="form-select">
+              <option selected>Genre</option>
+
+            </select>
+          </div>
+          <div class="col-md-2">
+            <label class="form-label visually-hidden">Rating</label>
+            <select id="ratingDropdown" class="form-select">
+              <option selected>Rating</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+            </select>
+          </div>
+          <div class="col-md-2">
+            <label class="form-label visually-hidden">Year</label>
+            <select id="yearDropdown" class="form-select">
+              <option selected>Year</option>
+              <option>2025</option>
+              <option>2024</option>
+              <option>2023</option>
+              <option>2022</option>
+              <option>2021</option>
+              <option>2020</option>
+            </select>
+          </div>
+          <div class="col-md-2">
+            <label class="form-label visually-hidden">Sort</label>
+            <select id="popularityDropdown" class="form-select">
+              <option  selected>Sort: Most Popular</option>
+              <option>Newest</option>
+              <option>Oldest</option>
+            </select>
+          </div>
+        </form>
+
+        <div  class="librarycards">
+          <div class="table-responsive">
+            <div id="librarycards" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-4">
+              
+              
+            </div>
+          </div>
+        </div>
+        
+        <div class="loadbuttonlibrary">
+        <div style="display:flex; justify-content:center; margin-top:32px;">
+          <button id="loadbuttonlibrary" class="primaryButton">
+            Load More
+          </button>
+        </div>
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="footer">
+      <div class="container-fluid">
+        <div class="row d-flex align-items-center">
+          <div class="col-lg-6" >
+            <div class="footerText d-lg-flex justify-content-center d-flex align-items-center justify-content-center " id="footerText">
+              <div class="about" id="about">About</div>
+              <div class="helpCenter" id="helpCenter">Help Center</div>
+              <div class="terms" id="terms">Terms</div>
+              <div class="privacy" id="privacy">Privacy</div>
+            </div>
+          </div>
+          <div class="col-lg-6" >
+            <div class="footerMedia d-lg-flex justify-content-end d-flex align-items-center justify-content-center " id="footerMedia">
+              <div class="socialsContainer" id="instagramContainer">
+                <img
+                  class="socialsIcon"
+                  id="instagram"
+                  src="../assets/images/instagram.png"
+                  alt="instagram logo"
+                />
+              </div>
+              <div class="socialsContainer" id="twitterContainer">
+                <img
+                  class="socialsIcon"
+                  id="twitter"
+                  src="../assets/images/twitter.png"
+                  alt="twitter logo"
+                />
+              </div>
+              <div class="socialsContainer" id="youtubeContainer">
+                <img
+                  class="socialsIcon"
+                  id="youtube"
+                  src="../assets/images/youtube.png"
+                  alt="youtube logo"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/script.js"></script>
+</html>
