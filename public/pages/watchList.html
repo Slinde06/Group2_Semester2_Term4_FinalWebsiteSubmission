@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="../css/main.css" />
   </head>
 
-  <body>
+  <body onload="populateWatchListPage()">
 
 <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
@@ -114,10 +114,20 @@
             </select>
           </div>
         </form>
+
+        <div  class="librarycards">
+          <div class="table-responsive">
+            <div id="watchListCards" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-4">
+              
+              
+            </div>
           </div>
+        </div>
+
+        </div>
     </div>
 
-    <section class="homePageContent">
+<section class="homePageContent">
 
     <div class="homeBack">
       <div class="continueContainer">
