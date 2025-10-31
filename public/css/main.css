@@ -289,7 +289,7 @@
 }
 
 .individualBack {
-  height: 1500px;
+  height: fit-content;
   background: #090040;
   background: linear-gradient(
     0deg,
