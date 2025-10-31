@@ -1,0 +1,139 @@
+/* Responsive fixes: padding for small screens and limited form width on larger screens */
+
+/* Give breathing room on small screens so content isn't flush with top/bottom */
+@media (max-width: 767.98px) {
+  body {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  /* Add horizontal padding inside the form containers on small screens */
+  .signInContainer,
+  .welcomeContainer1,
+  .welcomeContainer2 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Ensure buttons and inputs don't touch screen edges */
+  .formInput,
+  .signInButton,
+  .signUpButton1 {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+/* Constrain the form width on larger screens so it doesn't stretch too wide */
+@media (min-width: 768px) {
+  .signInContainer,
+  .signUpContainer {
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Small helpful defaults */
+.signInText,
+.welcomebackText1,
+.welcomebackText2 {
+  word-wrap: break-word;
+}
+
+/* Ensure full-height layout behaves when content is short */
+.min-vh-100 {
+  min-height: 100vh !important;
+}
+
+/* Ensure actor images render in a horizontal row inside the actorImageContainer */
+#actorImageContainer {
+  display: flex !important;
+  flex-direction: row;
+  flex-wrap: nowrap; /* keep them on a single row; change to wrap if you want wrapping */
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-start;
+  overflow-x: auto; /* allow horizontal scroll on very small screens */
+}
+
+/* Make thumbnails smaller than main.css default so they fit the hero */
+.actorImage {
+  width: 64px !important;
+  height: 64px !important;
+  margin-right: 8px !important;
+  border-radius: 50% !important;
+  padding: 3px !important;
+}
+.actorImage .actorImg {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  border-radius: 50% !important;
+}
+
+@media (min-width: 992px) {
+  .actorImage {
+    width: 80px !important;
+    height: 80px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .actorImage {
+    width: 48px !important;
+    height: 48px !important;
+  }
+}
+
+/* Rating block: star + numeric rating */
+.ratingBlock {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+.ratingBlock .star {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+.ratingBlock .rating {
+  color: #ffffff;
+  font-family: "Urbanist", sans-serif;
+  font-size: 18px;
+}
+
+/* Ensure actor thumbnails sit side-by-side and size responsively */
+#actorImageContainer {
+  display: flex !important;
+  flex-direction: row;
+  flex-wrap: wrap; /* allow wrapping on very narrow screens */
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Override .actorImage sizing so they fit horizontally in the hero */
+.actorImage {
+  width: 72px !important;
+  height: 72px !important;
+  margin-right: 8px !important;
+  border-radius: 50% !important;
+  padding: 3px !important;
+}
+
+@media (min-width: 992px) {
+  .actorImage {
+    width: 96px !important;
+    height: 96px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .actorImage {
+    width: 48px !important;
+    height: 48px !important;
+    margin-right: 6px !important;
+  }
+}

@@ -23,9 +23,10 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/responsive-fixes.css" />
   </head>
   <body>
- <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
         <a class="navbar-brand" href="Home.html">
           <img
@@ -67,73 +68,76 @@
     </nav>
     <div class="individualHero" id="individualHero">
       <div class="individualHeroContainer">
-      <div class="movieTitle" id="movieTitle">Title</div>
-      <div class="director" id="director">Director</div>
-      <img class="star" id="star" src="../assets/images/stars.png" alt="star" />
-      <div class="synopsisContainer" id="synopsisContainer">
-        <div class="synopsis" id="Synopsis">
-          Synopsis: Lorem ipsum dolor sit amet, consec tetur adipiscing elit.
-          Nam condimentum tempus diam, ultricies sollicitudin erat facilisis
-          eget. Vestibulum rhoncus dui vel eros laoreet
+        <div class="movieTitle" id="movieTitle">Title</div>
+        <div class="director" id="director">Director</div>
+        <div class="ratingBlock" id="ratingBlock">
+          <img class="star" id="star" src="../assets/images/stars.png" alt="star" />
+          <div class="rating" id="ratingValue">- / 10</div>
         </div>
-      </div>
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-6">
-            <div class="buttonContainer" id="buttonContainer">
-              <div class="firstButton" id="firstButton">
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  style="
-                    width: 137px;
-                    background-color: #000000;
-                    border-radius: none;
-                    border: none;
-                  "
-                >
-                  Play
-                </button>
+        <div class="synopsisContainer" id="synopsisContainer">
+          <div class="synopsis" id="Synopsis">
+            Synopsis: Lorem ipsum dolor sit amet, consec tetur adipiscing elit.
+            Nam condimentum tempus diam, ultricies sollicitudin erat facilisis
+            eget. Vestibulum rhoncus dui vel eros laoreet
+          </div>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-6">
+                <div class="buttonContainer" id="buttonContainer">
+                  <div class="firstButton" id="firstButton">
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      style="
+                        width: 137px;
+                        background-color: #000000;
+                        border-radius: none;
+                        border: none;
+                      "
+                    >
+                      Play
+                    </button>
+                  </div>
+                  <div class="secondButton" id="secondButton">
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      style="
+                        width: 137px;
+                        background-color: #000000;
+                        border-radius: none;
+                        border: none;
+                      "
+                    >
+                      Trailer
+                    </button>
+                  </div>
+                  <div class="thirdButton" id="thirdButton">
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      style="
+                        width: 137px;
+                        background-color: #a8a8a8;
+                        border-radius: none;
+                        border: none;
+                      "
+                    >
+                      Trailer
+                    </button>
+                  </div>
+                </div>
               </div>
-              <div class="secondButton" id="secondButton">
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  style="
-                    width: 137px;
-                    background-color: #000000;
-                    border-radius: none;
-                    border: none;
-                  "
-                >
-                  Trailer
-                </button>
               </div>
-              <div class="thirdButton" id="thirdButton">
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  style="
-                    width: 137px;
-                    background-color: #a8a8a8;
-                    border-radius: none;
-                    border: none;
-                  "
-                >
-                  Trailer
-                </button>
+              <div class="row">
+                <div class="actors" id="actors">Actors</div>
+                <div id="actorImageContainer" class="col"></div>
+              </div>
               </div>
             </div>
           </div>
-          <div class="actors" id="actors">Actors</div>
-          <div class="col-6">
-            <div class="circleContainer" id="circleContainer">
-              <div class="circle1" id="circle1"></div>
-            </div>
-          </div>
         </div>
       </div>
-    </div>
     </div>
     <div class="individualBack" id="individualBack">
       <div class="moreContainer" id="moreContainer">
@@ -210,8 +214,7 @@
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"
     ></script>
-    <script src="../js/jquery-3.7.1.min.js">
-    </script>
+    <script src="../js/jquery-3.7.1.min.js"></script>
     <script src="../js/script.js"></script>
   </body>
 </html>
