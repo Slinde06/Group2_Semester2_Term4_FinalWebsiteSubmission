@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="css/responsive-fixes.css" />
   </head>
   <body class="d-flex align-items-center min-vh-100">
-    <div class="displayNone">
+    <div class="displayNone" id="signInWrapper">
       <div class="container-fluid" style="padding: 0px">
         <div class="row g-0" style="width: 100%; padding: 0%">
           <div class="col-12 col-md-6 px-0">
@@ -50,7 +50,7 @@
                 </div>
               </div>
               <div class="buttonContainer1" id="buttonContainer1">
-                <a href="signup.html">
+                <a href="#" id="topSignUpLink">
                   <button class="signUpButton1" id="signUpButton1">
                     Sign Up
                   </button>
@@ -106,7 +106,7 @@
         </div>
       </div>
     </div>
-    <div class="container-fluid" style="padding: 0px">
+    <div class="container-fluid" id="signUpWrapper" style="padding: 0px">
       <div class="row g-0" style="width: 100%; padding: 0%">
         <div class="col-12 col-md-6 px-0">
           <div class="signInPage" id="signUpPage">
@@ -186,7 +186,7 @@
               </div>
             </div>
             <div class="buttonContainer1" id="buttonContainerStart">
-              <a href="signin.html">
+              <a href="#" id="bottomSignInLink">
                 <button class="signUpButton1" id="goToSignInButton">
                   Sign In
                 </button>
@@ -196,5 +196,54 @@
         </div>
       </div>
     </div>
+    <script>
+      // Toggle sign in / sign up panels without navigating away
+      (function () {
+        const signInWrapper = document.getElementById("signInWrapper");
+        const signUpWrapper = document.getElementById("signUpWrapper");
+
+        function showSignIn(e) {
+          if (e) e.preventDefault();
+          signInWrapper.classList.remove("displayNone");
+          signUpWrapper.classList.add("displayNone");
+          // move focus for accessibility
+          const input = document.querySelector("#signInContainer input");
+          if (input) input.focus();
+        }
+
+        function showSignUp(e) {
+          if (e) e.preventDefault();
+          signUpWrapper.classList.remove("displayNone");
+          signInWrapper.classList.add("displayNone");
+          const input = document.querySelector("#signUpContainer input");
+          if (input) input.focus();
+        }
+
+        document
+          .getElementById("topSignUpLink")
+          ?.addEventListener("click", showSignUp);
+        document
+          .getElementById("bottomSignInLink")
+          ?.addEventListener("click", showSignIn);
+
+        // If there are other elements you want to toggle the screens (buttons), attach here
+        document
+          .getElementById("signUpButton1")
+          ?.addEventListener("click", showSignUp);
+        document
+          .getElementById("goToSignInButton")
+          ?.addEventListener("click", showSignIn);
+
+        // Optional: handle hash navigation so back/forward works with the panels
+        window.addEventListener("hashchange", function () {
+          if (location.hash === "#signInPage") showSignIn();
+          if (location.hash === "#signUpPage") showSignUp();
+        });
+
+        // Initialize panels based on hash
+        if (location.hash === "#signInPage") showSignIn();
+        if (location.hash === "#signUpPage") showSignUp();
+      })();
+    </script>
   </body>
 </html>
