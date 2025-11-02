@@ -311,7 +311,6 @@ class Featured {
 
   try {
     individualID = localStorage.getItem("individualID");
-    console.log(individualID);
 
     let individual = await fetch(
       "https://api.themoviedb.org/3/movie/" + individualID + "?language=en-US",
@@ -329,6 +328,14 @@ class Featured {
       "https://image.tmdb.org/t/p/original" + individual.backdrop_path;
     let rating = individual.rating;
     let overview = individual.overview;
+    let genres = [];
+    for (let i = 0; i < individual.genres.length; i++) {
+      genres.push(individual.genres[i].id);
+    }
+    let poster = "https://image.tmdb.org/t/p/original"+individual.poster_path;
+    let year = individual.release_date.slice(0, 4);
+
+    individualDetails = new Library(title,ID,genres,poster,year,rating);
 
     let credits = await fetch(
       "https://api.themoviedb.org/3/movie/" +
@@ -391,6 +398,11 @@ class Featured {
           "' class='actorImg'></div>"
       );
     });
+    $("#individualAdd").click((e)=>{
+      e.preventDefault();
+      AddToList(individualDetails);
+      console.log("added to list");
+    })
 
     let similar = await fetch(
       "https://api.themoviedb.org/3/movie/" +
@@ -1032,50 +1044,22 @@ function populateHome(){
 }
 
 
-// leandre sign in/ sign up code 
-      (function () {
-        const signInWrapper = document.getElementById("signInWrapper");
-        const signUpWrapper = document.getElementById("signUpWrapper");
+// leandre sign in/ sign up code
 
-        function showSignIn(e) {
-          if (e) e.preventDefault();
-          signInWrapper.classList.remove("displayNone");
-          signUpWrapper.classList.add("displayNone");
-          // move focus for accessibility
-          const input = document.querySelector("#signInContainer input");
-          if (input) input.focus();
-        }
-
-        function showSignUp(e) {
-          if (e) e.preventDefault();
-          signUpWrapper.classList.remove("displayNone");
-          signInWrapper.classList.add("displayNone");
-          const input = document.querySelector("#signUpContainer input");
-          if (input) input.focus();
-        }
-
-        document
-          .getElementById("topSignUpLink")
-          ?.addEventListener("click", showSignUp);
-        document
-          .getElementById("bottomSignInLink")
-          ?.addEventListener("click", showSignIn);
-
-        // If there are other elements you want to toggle the screens (buttons), attach here
-        document
-          .getElementById("signUpButton1")
-          ?.addEventListener("click", showSignUp);
-        document
-          .getElementById("goToSignInButton")
-          ?.addEventListener("click", showSignIn);
-
-        // Optional: handle hash navigation so back/forward works with the panels
-        window.addEventListener("hashchange", function () {
-          if (location.hash === "#signInPage") showSignIn();
-          if (location.hash === "#signUpPage") showSignUp();
-        });
-
-        // Initialize panels based on hash
-        if (location.hash === "#signInPage") showSignIn();
-        if (location.hash === "#signUpPage") showSignUp();
-      })();
+const loginText = document.querySelector(".title-text .login");
+const loginForm = document.querySelector("form.login");
+const loginBtn = document.querySelector("label.login");
+const signupBtn = document.querySelector("label.signup");
+const signupLink = document.querySelector("form .signup-link a");
+signupBtn.onclick = () => {
+  loginForm.style.marginLeft = "-50%";
+  loginText.style.marginLeft = "-50%";
+};
+loginBtn.onclick = () => {
+  loginForm.style.marginLeft = "0%";
+  loginText.style.marginLeft = "0%";
+};
+signupLink.onclick = () => {
+  signupBtn.click();
+  return false;
+};
