@@ -311,7 +311,6 @@ class Featured {
 
   try {
     individualID = localStorage.getItem("individualID");
-    console.log(individualID);
 
     let individual = await fetch(
       "https://api.themoviedb.org/3/movie/" + individualID + "?language=en-US",
