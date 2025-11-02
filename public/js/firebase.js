@@ -1,7 +1,11 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
- 
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
+
 // import { getAnalytics } from "firebase/analytics";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -15,7 +19,7 @@ const firebaseConfig = {
   storageBucket: "look-semester-2.firebasestorage.app",
   messagingSenderId: "437802465315",
   appId: "1:437802465315:web:f1265411212ff68937d996",
-  measurementId: "G-1TN6KGNG23"
+  measurementId: "G-1TN6KGNG23",
 };
 
 // Initialize Firebase
@@ -24,34 +28,32 @@ const app = initializeApp(firebaseConfig);
 
 const auth = getAuth(app);
 
+document.getElementById("signupForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  let email = document.getElementById("signUpEmail").value;
+  let password = document.getElementById("signUpPass").value;
 
-document.getElementById("signupForm").addEventListener("submit", async (e)=>{
-    e.preventDefault();
-    let email = document.getElementById("signUpEmail").value;
-    let password = document.getElementById("signUpPass").value;
-    let username = document.getElementById("fullname").value;
+  try {
+    await createUserWithEmailAndPassword(auth, email, password); // from firebase built in functions
 
-    try{
-        await createUserWithEmailAndPassword(auth,email,password); // from firebase built in functions 
-
-        localStorage.setItem("username",username);
-        alert("Account created successfully");
-        window.location.href = "pages/Home.html"
-    } catch(error){
-        alert(error.message);
-    };
+    alert("Account created successfully");
+    window.location.href = "pages/Home.html";
+  } catch (error) {
+    alert(error.message);
+  }
 });
 
-document.getElementById("signinForm").addEventListener("submit", async (e)=>{
-    e.preventDefault();
-    let email = document.getElementById("signInEmail").value;
-    let password = document.getElementById("signInPass").value;
-
-        try{
-        await signInWithEmailAndPassword(auth,email,password); // from firebase built in functions 
-        alert("Login successful");
-        window.location.href = "pages/Home.html"
-    } catch(error){
-        alert(error.message);
-    };
+document.getElementById("signinForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  let email = document.getElementById("signInEmail").value;
+  let password = document.getElementById("signInPass").value;
+  let username = document.getElementById("fullname").value;
+  try {
+    await signInWithEmailAndPassword(auth, email, password); // from firebase built in functions
+    localStorage.setItem("username", username);
+    alert("Login successful");
+    window.location.href = "pages/Home.html";
+  } catch (error) {
+    alert(error.message);
+  }
 });

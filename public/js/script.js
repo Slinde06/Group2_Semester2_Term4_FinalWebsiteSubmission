@@ -1025,57 +1025,27 @@ function RemoveFromList(movie) {
   localStorage.setItem("watchList", JSON.stringify(watchList));
 }
 
-
-function populateHome(){
+function populateHome() {
   let username = localStorage.getItem("username");
-  $("#welcomeText").html("Welcome Back, " + username +"!");
+  $("#welcomeText").html("Welcome Back, " + username + "!");
 }
 
+// leandre sign in/ sign up code
 
-// leandre sign in/ sign up code 
-      (function () {
-        const signInWrapper = document.getElementById("signInWrapper");
-        const signUpWrapper = document.getElementById("signUpWrapper");
-
-        function showSignIn(e) {
-          if (e) e.preventDefault();
-          signInWrapper.classList.remove("displayNone");
-          signUpWrapper.classList.add("displayNone");
-          // move focus for accessibility
-          const input = document.querySelector("#signInContainer input");
-          if (input) input.focus();
-        }
-
-        function showSignUp(e) {
-          if (e) e.preventDefault();
-          signUpWrapper.classList.remove("displayNone");
-          signInWrapper.classList.add("displayNone");
-          const input = document.querySelector("#signUpContainer input");
-          if (input) input.focus();
-        }
-
-        document
-          .getElementById("topSignUpLink")
-          ?.addEventListener("click", showSignUp);
-        document
-          .getElementById("bottomSignInLink")
-          ?.addEventListener("click", showSignIn);
-
-        // If there are other elements you want to toggle the screens (buttons), attach here
-        document
-          .getElementById("signUpButton1")
-          ?.addEventListener("click", showSignUp);
-        document
-          .getElementById("goToSignInButton")
-          ?.addEventListener("click", showSignIn);
-
-        // Optional: handle hash navigation so back/forward works with the panels
-        window.addEventListener("hashchange", function () {
-          if (location.hash === "#signInPage") showSignIn();
-          if (location.hash === "#signUpPage") showSignUp();
-        });
-
-        // Initialize panels based on hash
-        if (location.hash === "#signInPage") showSignIn();
-        if (location.hash === "#signUpPage") showSignUp();
-      })();
+const loginText = document.querySelector(".title-text .login");
+const loginForm = document.querySelector("form.login");
+const loginBtn = document.querySelector("label.login");
+const signupBtn = document.querySelector("label.signup");
+const signupLink = document.querySelector("form .signup-link a");
+signupBtn.onclick = () => {
+  loginForm.style.marginLeft = "-50%";
+  loginText.style.marginLeft = "-50%";
+};
+loginBtn.onclick = () => {
+  loginForm.style.marginLeft = "0%";
+  loginText.style.marginLeft = "0%";
+};
+signupLink.onclick = () => {
+  signupBtn.click();
+  return false;
+};
