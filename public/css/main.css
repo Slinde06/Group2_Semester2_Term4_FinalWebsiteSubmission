@@ -1261,7 +1261,7 @@ body {
   background: #b13bff;
   color: #fff;
 }
-.wrapper {
+.loginWrapper {
   overflow: hidden;
   max-width: 390px;
   background: #fff;
@@ -1269,18 +1269,18 @@ body {
   border-radius: 15px;
   box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
 }
-.wrapper .title-text {
+.loginWrapper .title-text {
   display: flex;
   width: 200%;
 }
-.wrapper .title {
+.loginWrapper .title {
   width: 50%;
   font-size: 35px;
   font-weight: 600;
   text-align: center;
   transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
-.wrapper .slide-controls {
+.loginWrapper .loginSlide-controls {
   position: relative;
   display: flex;
   height: 50px;
@@ -1291,7 +1291,7 @@ body {
   border: 1px solid lightgrey;
   border-radius: 15px;
 }
-.slide-controls .slide {
+.loginSlide-controls .loginSlide {
   height: 100%;
   width: 100%;
   color: #fff;
@@ -1303,10 +1303,10 @@ body {
   z-index: 1;
   transition: all 0.6s ease;
 }
-.slide-controls label.signup {
+.loginSlide-controls label.signup {
   color: #000;
 }
-.slide-controls .slider-tab {
+.loginSlide-controls .loginSlider-tab {
   position: absolute;
   height: 100%;
   width: 50%;
@@ -1319,7 +1319,7 @@ body {
 input[type="radio"] {
   display: none;
 }
-#signup:checked ~ .slider-tab {
+#signup:checked ~ .loginSlider-tab {
   left: 50%;
 }
 #signup:checked ~ label.signup {
@@ -1337,7 +1337,7 @@ input[type="radio"] {
   cursor: default;
   user-select: none;
 }
-.wrapper .form-container {
+.loginWrapper .form-container {
   width: 100%;
   overflow: hidden;
 }
