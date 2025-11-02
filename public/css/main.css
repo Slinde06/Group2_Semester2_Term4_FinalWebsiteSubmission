@@ -1241,16 +1241,8 @@ Hero Slider - by CodyHouse.co
   display: flex;
   flex-direction: row;
 }
-
-@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
 html,
-body {
+.loginBody {
   display: grid;
   height: 100%;
   width: 100%;

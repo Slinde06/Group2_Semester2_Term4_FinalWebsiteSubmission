@@ -311,7 +311,6 @@ class Featured {
 
   try {
     individualID = localStorage.getItem("individualID");
-    console.log(individualID);
 
     let individual = await fetch(
       "https://api.themoviedb.org/3/movie/" + individualID + "?language=en-US",
@@ -329,6 +328,14 @@ class Featured {
       "https://image.tmdb.org/t/p/original" + individual.backdrop_path;
     let rating = individual.rating;
     let overview = individual.overview;
+    let genres = [];
+    for (let i = 0; i < individual.genres.length; i++) {
+      genres.push(individual.genres[i].id);
+    }
+    let poster = "https://image.tmdb.org/t/p/original"+individual.poster_path;
+    let year = individual.release_date.slice(0, 4);
+
+    individualDetails = new Library(title,ID,genres,poster,year,rating);
 
     let credits = await fetch(
       "https://api.themoviedb.org/3/movie/" +
@@ -391,6 +398,11 @@ class Featured {
           "' class='actorImg'></div>"
       );
     });
+    $("#individualAdd").click((e)=>{
+      e.preventDefault();
+      AddToList(individualDetails);
+      console.log("added to list");
+    })
 
     let similar = await fetch(
       "https://api.themoviedb.org/3/movie/" +
@@ -1029,6 +1041,7 @@ function populateHome() {
   let username = localStorage.getItem("username");
   $("#welcomeText").html("Welcome Back, " + username + "!");
 }
+
 
 // leandre sign in/ sign up code
 
