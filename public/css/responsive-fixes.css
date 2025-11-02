@@ -137,3 +137,7 @@
     margin-right: 6px !important;
   }
 }
+/* Respect the visibility helper used by JS */
+.displayNone {
+  display: none !important;
+}
