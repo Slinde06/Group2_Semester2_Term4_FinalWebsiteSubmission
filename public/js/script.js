@@ -1037,10 +1037,9 @@ function RemoveFromList(movie) {
   localStorage.setItem("watchList", JSON.stringify(watchList));
 }
 
-
-function populateHome(){
+function populateHome() {
   let username = localStorage.getItem("username");
-  $("#welcomeText").html("Welcome Back, " + username +"!");
+  $("#welcomeText").html("Welcome Back, " + username + "!");
 }
 
 
