@@ -1025,17 +1025,57 @@ function RemoveFromList(movie) {
   localStorage.setItem("watchList", JSON.stringify(watchList));
 }
 
-document.getElementById("goToSignInButton").addEventListener("click", (e) =>{
-  e.preventDefault;
-  console.log("switch");
-  let signIn = document.getElementById("signIn");
-  signIn.classList.remove("displayNone");
-  $("#signUpPage").hide();
-  $("#startBack").hide();
-  $("#signInBack").show();
-  $("#signInPage").show();
-})
-$("#goToSignInButton").click( (e) => {
-  
-  
-})
+
+function populateHome(){
+  let username = localStorage.getItem("username");
+  $("#welcomeText").html("Welcome Back, " + username +"!");
+}
+
+
+// leandre sign in/ sign up code 
+      (function () {
+        const signInWrapper = document.getElementById("signInWrapper");
+        const signUpWrapper = document.getElementById("signUpWrapper");
+
+        function showSignIn(e) {
+          if (e) e.preventDefault();
+          signInWrapper.classList.remove("displayNone");
+          signUpWrapper.classList.add("displayNone");
+          // move focus for accessibility
+          const input = document.querySelector("#signInContainer input");
+          if (input) input.focus();
+        }
+
+        function showSignUp(e) {
+          if (e) e.preventDefault();
+          signUpWrapper.classList.remove("displayNone");
+          signInWrapper.classList.add("displayNone");
+          const input = document.querySelector("#signUpContainer input");
+          if (input) input.focus();
+        }
+
+        document
+          .getElementById("topSignUpLink")
+          ?.addEventListener("click", showSignUp);
+        document
+          .getElementById("bottomSignInLink")
+          ?.addEventListener("click", showSignIn);
+
+        // If there are other elements you want to toggle the screens (buttons), attach here
+        document
+          .getElementById("signUpButton1")
+          ?.addEventListener("click", showSignUp);
+        document
+          .getElementById("goToSignInButton")
+          ?.addEventListener("click", showSignIn);
+
+        // Optional: handle hash navigation so back/forward works with the panels
+        window.addEventListener("hashchange", function () {
+          if (location.hash === "#signInPage") showSignIn();
+          if (location.hash === "#signUpPage") showSignUp();
+        });
+
+        // Initialize panels based on hash
+        if (location.hash === "#signInPage") showSignIn();
+        if (location.hash === "#signUpPage") showSignUp();
+      })();

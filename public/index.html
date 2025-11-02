@@ -41,12 +41,7 @@
               </div>
               <div class="welcomeContainer1" id="welcomeContainer1">
                 <div class="welcomebackText2" id="welcomebackText2">
-                  Lorem ipsum dolor sit amet, consec tetur adipiscing elit. Nam
-                  condimentum tempus diam, ultricies sollicitudin erat facilisis
-                  eget. Vestibulum rhoncus dui vel eros laoreet.Lorem ipsum
-                  dolor sit amet, consec tetur adipiscing elit. Nam condimentum
-                  tempus diam, ultricies sollicitudin erat facilisis eget.
-                  Vestibulum rhoncus dui vel eros laoreet.
+                  Welcome Back to LOOK your one stop shop for everything movies. Sign in now to see all of the new movies we've curated for you. Don't miss out! Don't have an account yet? Sign up now
                 </div>
               </div>
               <div class="buttonContainer1" id="buttonContainer1">
@@ -65,8 +60,6 @@
                 <form
                   class="signinForm"
                   id="signinForm"
-                  action="#"
-                  method="post"
                 >
                   <div class="formGroup">
                     <label for="email" class="inputLabel">Email</label>
@@ -82,7 +75,7 @@
                   <div class="formGroup">
                     <label for="password" class="inputLabel">Password</label>
                     <input
-                      id="signInpassword"
+                      id="signInPass"
                       name="password"
                       type="password"
                       class="formInput"
@@ -112,7 +105,7 @@
           <div class="signInPage" id="signUpPage">
             <div class="signInContainer" id="signUpContainer">
               <div class="signInText" id="signUpText">Create Account</div>
-              <form class="signinForm" id="signupForm" action="#" method="post">
+              <form class="signinForm" id="signupForm" >
                 <div class="formGroup">
                   <label for="fullname" class="inputLabel">Full Name</label>
                   <input
@@ -127,7 +120,7 @@
                 <div class="formGroup">
                   <label for="email" class="inputLabel">Email</label>
                   <input
-                    id="email"
+                    id="signUpEmail"
                     name="email"
                     type="email"
                     class="formInput"
@@ -138,7 +131,7 @@
                 <div class="formGroup">
                   <label for="password" class="inputLabel">Password</label>
                   <input
-                    id="password"
+                    id="signUpPass"
                     name="password"
                     type="password"
                     class="formInput"
@@ -196,54 +189,9 @@
         </div>
       </div>
     </div>
-    <script>
-      // Toggle sign in / sign up panels without navigating away
-      (function () {
-        const signInWrapper = document.getElementById("signInWrapper");
-        const signUpWrapper = document.getElementById("signUpWrapper");
 
-        function showSignIn(e) {
-          if (e) e.preventDefault();
-          signInWrapper.classList.remove("displayNone");
-          signUpWrapper.classList.add("displayNone");
-          // move focus for accessibility
-          const input = document.querySelector("#signInContainer input");
-          if (input) input.focus();
-        }
-
-        function showSignUp(e) {
-          if (e) e.preventDefault();
-          signUpWrapper.classList.remove("displayNone");
-          signInWrapper.classList.add("displayNone");
-          const input = document.querySelector("#signUpContainer input");
-          if (input) input.focus();
-        }
-
-        document
-          .getElementById("topSignUpLink")
-          ?.addEventListener("click", showSignUp);
-        document
-          .getElementById("bottomSignInLink")
-          ?.addEventListener("click", showSignIn);
-
-        // If there are other elements you want to toggle the screens (buttons), attach here
-        document
-          .getElementById("signUpButton1")
-          ?.addEventListener("click", showSignUp);
-        document
-          .getElementById("goToSignInButton")
-          ?.addEventListener("click", showSignIn);
-
-        // Optional: handle hash navigation so back/forward works with the panels
-        window.addEventListener("hashchange", function () {
-          if (location.hash === "#signInPage") showSignIn();
-          if (location.hash === "#signUpPage") showSignUp();
-        });
-
-        // Initialize panels based on hash
-        if (location.hash === "#signInPage") showSignIn();
-        if (location.hash === "#signUpPage") showSignUp();
-      })();
-    </script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/script.js"></script>
+    <script type="module" src="js/firebase.js"></script>
   </body>
 </html>

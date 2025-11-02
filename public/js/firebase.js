@@ -9,13 +9,13 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } f
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyDsV2cjGIKVxzOrQHm7x47RMSGqYPZ8tXA",
-  authDomain: "intro-class-f9eaa.firebaseapp.com",
-  projectId: "intro-class-f9eaa",
-  storageBucket: "intro-class-f9eaa.firebasestorage.app",
-  messagingSenderId: "145843348743",
-  appId: "1:145843348743:web:1fc22c8213fe9c8d7711a2",
-  measurementId: "G-GYL1PG1QEL"
+  apiKey: "AIzaSyDNU-4VO8rV6pwL236yCi1X8rx8cyO4Ef8",
+  authDomain: "look-semester-2.firebaseapp.com",
+  projectId: "look-semester-2",
+  storageBucket: "look-semester-2.firebasestorage.app",
+  messagingSenderId: "437802465315",
+  appId: "1:437802465315:web:f1265411212ff68937d996",
+  measurementId: "G-1TN6KGNG23"
 };
 
 // Initialize Firebase
@@ -24,3 +24,34 @@ const app = initializeApp(firebaseConfig);
 
 const auth = getAuth(app);
 
+
+document.getElementById("signupForm").addEventListener("submit", async (e)=>{
+    e.preventDefault();
+    let email = document.getElementById("signUpEmail").value;
+    let password = document.getElementById("signUpPass").value;
+    let username = document.getElementById("fullname").value;
+
+    try{
+        await createUserWithEmailAndPassword(auth,email,password); // from firebase built in functions 
+
+        localStorage.setItem("username",username);
+        alert("Account created successfully");
+        window.location.href = "pages/Home.html"
+    } catch(error){
+        alert(error.message);
+    };
+});
+
+document.getElementById("signinForm").addEventListener("submit", async (e)=>{
+    e.preventDefault();
+    let email = document.getElementById("signInEmail").value;
+    let password = document.getElementById("signInPass").value;
+
+        try{
+        await signInWithEmailAndPassword(auth,email,password); // from firebase built in functions 
+        alert("Login successful");
+        window.location.href = "pages/Home.html"
+    } catch(error){
+        alert(error.message);
+    };
+});
