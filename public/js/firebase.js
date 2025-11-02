@@ -36,8 +36,7 @@ document.getElementById("signupForm").addEventListener("submit", async (e) => {
   try {
     await createUserWithEmailAndPassword(auth, email, password); // from firebase built in functions
 
-    alert("Account created successfully");
-    window.location.href = "pages/Home.html";
+    window.location.href = "index.html";
   } catch (error) {
     alert(error.message);
   }
@@ -47,11 +46,10 @@ document.getElementById("signinForm").addEventListener("submit", async (e) => {
   e.preventDefault();
   let email = document.getElementById("signInEmail").value;
   let password = document.getElementById("signInPass").value;
-  let username = document.getElementById("fullname").value;
+  let username = document.getElementById("username").value;
   try {
     await signInWithEmailAndPassword(auth, email, password); // from firebase built in functions
     localStorage.setItem("username", username);
-    alert("Login successful");
     window.location.href = "pages/Home.html";
   } catch (error) {
     alert(error.message);
