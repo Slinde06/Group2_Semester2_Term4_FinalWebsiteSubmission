@@ -13,13 +13,13 @@ import {
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyDNU-4VO8rV6pwL236yCi1X8rx8cyO4Ef8",
-  authDomain: "look-semester-2.firebaseapp.com",
-  projectId: "look-semester-2",
-  storageBucket: "look-semester-2.firebasestorage.app",
-  messagingSenderId: "437802465315",
-  appId: "1:437802465315:web:f1265411212ff68937d996",
-  measurementId: "G-1TN6KGNG23",
+  apiKey: "AIzaSyAoUYRw0JlzTps3Ay9LqtvJX-IGnh-0HTM",
+  authDomain: "look-final-handin.firebaseapp.com",
+  projectId: "look-final-handin",
+  storageBucket: "look-final-handin.firebasestorage.app",
+  messagingSenderId: "374507244864",
+  appId: "1:374507244864:web:cecefe7cde8e5ceb4e7ea5",
+  measurementId: "G-E2WNGVWH98"
 };
 
 // Initialize Firebase
